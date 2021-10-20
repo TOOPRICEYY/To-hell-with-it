@@ -38,7 +38,7 @@ int main(int argc, char * argv[]){
             Players[i] = Player_factory(argv[4+i*2],argv[5+i*2]);
         }
         for(int i = 0; i<4; i++){
-            for(int i = 0; i<4; i++){ //spec duag
+            for(int i = 0; i<4; i++){ //"change something in euchre real quick" -truong ryan 2021
                 Players[i]->add_card(pack.deal_one());
             }
         }
