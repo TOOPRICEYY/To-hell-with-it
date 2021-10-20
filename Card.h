@@ -84,6 +84,7 @@ constexpr const char* const SUIT_NAMES_BY_WEIGHT[] = {
   Card::SUIT_CLUBS,
   Card::SUIT_DIAMONDS
 };
+
 const int NUM_SUITS = 4;
 
 // Ranks in order from lowest rank to highest rank.
@@ -102,6 +103,7 @@ constexpr const char* const RANK_NAMES_BY_WEIGHT[] = {
   Card::RANK_KING,
   Card::RANK_ACE
 };
+
 const int NUM_RANKS = 13;
 
 //EFFECTS Returns true if lhs is lower value than rhs.
