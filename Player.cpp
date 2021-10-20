@@ -304,7 +304,7 @@ class Human : public Player {
         }
     }
 
-    virtual bool make_trump(const Card &upcard, bool is_dealer,
+    virtual bool make_trump(const Card &upcard, bool is_ealer,
         int round, string &order_up_suit) const {
         assert(round == 1 || round == 2);
 
@@ -313,11 +313,21 @@ class Human : public Player {
             h[i] = hand[i];
         }
         sort(h.begin(),h.end()); // sort first
+
         for(int i = 0; i < handsize; ++i) {
             cout << "Human player " << get_name() << 
-            "'s hand: [" << i << "] " << hand[i];
+            "'s hand: [" << i << "] " << hand[i] << endl;
         }
+        cout << "Human player " << get_name() << 
+        ", please enter a suit, or \"pass\":" << endl;
+        cin >> order_up_suit;
 
+        if (order_up_suit == "pass") { 
+            cout << get_name() << " passes" << endl;
+            return false;
+        }
+        cout << get_name() << " orders up " << order_up_suit << endl;
+        return true;
     }
 
     virtual void add_and_discard(const Card &upcard) {
