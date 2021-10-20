@@ -262,7 +262,6 @@ class Human : public Player {
         }
         return count;
         Card a;
-        remove(a);
     }
 
     virtual const string & get_name() const{

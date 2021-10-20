@@ -12,6 +12,21 @@
 
 using namespace std;
 
+
+void deal(Pack &pack, array<Player *, 4> Players, int dealer){
+    int itter;
+          for(int c = 0; c<2; c++){
+            for(int i = 0; i<4; i++){ //Deal
+                itter = (i+dealer)%4;
+                Players[itter]->add_card(pack.deal_one());
+                Players[itter]->add_card(pack.deal_one());
+                if((i+c)%2 == 0){
+                     Players[itter]->add_card(pack.deal_one());
+                }
+            }
+        }
+}
+
 int main(int argc, char * argv[]){
 
     ifstream f(argv[1]);
@@ -26,22 +41,50 @@ int main(int argc, char * argv[]){
 
     
     array<Player *, 4> Players;
+    Card upcard;
+    string trump = ""; 
+    int dealer = 0;
+    int h = 0;
+
     if(f.is_open()){ // if open and santized run
         Pack pack(f);
         f.close();
 
-        bool shuffle =  argv[2]=="shuffle" ? true : false;
+        bool shuffle = argv[2]=="shuffle" ? true : false;
+        if(shuffle) pack.shuffle();
         int win_threshold =  atoi(argv[3]);
-        
         
         for(int i = 0; i<4; i++){ // create players to spec
             Players[i] = Player_factory(argv[4+i*2],argv[5+i*2]);
         }
-        for(int i = 0; i<4; i++){
-            for(int i = 0; i<4; i++){ //"change something in euchre real quick" -truong ryan 2021
-                Players[i]->add_card(pack.deal_one());
+
+    
+
+        deal(pack, Players, dealer);
+        trump = ""; 
+        h = 0;
+
+
+        while(trump == ""){
+            upcard = pack.deal_one();
+            cout << "Hand " << h << endl;
+            cout << Players[dealer] << " Deals" << endl;
+            cout << upcard << " turned up" << endl;
+
+            for(int i = 0; i<4; i++){ // create players to spec
+                int itter = (i+dealer)%4;
+                if(Players[itter]->make_trump(upcard,dealer==itter,h,upcard.get_suit())){
+                    trump = upcard.get_suit();
+                    break;
+                }
             }
+
+
         }
+
+
+        dealer = (dealer+1)%4;
+  
 
 
 
