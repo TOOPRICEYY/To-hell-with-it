@@ -333,14 +333,21 @@ class Human : public Player {
     virtual void add_and_discard(const Card &upcard) {
         assert(handsize > 0);
         
-        array<Card, MAX_HAND_SIZE> h;
-        for(int i=0; i < handsize; ++i) {
-            h[i] = hand[i];
+        for(int i = 0; i < handsize; ++i) {
+            cout << "Human player " << get_name() << 
+            "'s hand: [" << i << "] " << hand[i] << endl;
         }
-        sort(h.begin(),h.end());
+        cout << "Discard upcard: [-1]" << endl;
+        cout << "Human player " << get_name() << 
+        ", please select a card to discard:" << endl;
 
-        remove(h[0]); // 0 should be the lowest
-        add_card(upcard, upcard.get_suit());
+        int input;
+        cin >> input;
+
+        if(input == -1) {return;} // want to discard upcard, do nothing
+        
+        remove(hand[input]); // discard chosen card then add upcard
+        add_card(upcard);
     }
 
     virtual Card lead_card(const std::string &trump) {
