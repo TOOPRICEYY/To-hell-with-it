@@ -1,5 +1,6 @@
 {
     "files.associations": {
+<<<<<<< HEAD
         "xstring": "cpp",
         "type_traits": "cpp",
         "algorithm": "cpp",
@@ -47,5 +48,8 @@
         "xtr1common": "cpp",
         "xtree": "cpp",
         "xutility": "cpp"
+=======
+        "ostream": "cpp"
+>>>>>>> cccb291a33ddcf13ce266d8dfe0ef9d1e23d1424
     }
 }

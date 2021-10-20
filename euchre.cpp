@@ -12,6 +12,7 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 
 void deal(Pack &pack, array<Player *, 4> Players, int dealer){
     int itter;
@@ -27,6 +28,8 @@ void deal(Pack &pack, array<Player *, 4> Players, int dealer){
         }
 }
 
+=======
+>>>>>>> cccb291a33ddcf13ce266d8dfe0ef9d1e23d1424
 int main(int argc, char * argv[]){
 
     ifstream f(argv[1]);
@@ -41,15 +44,19 @@ int main(int argc, char * argv[]){
 
     
     array<Player *, 4> Players;
+<<<<<<< HEAD
     Card upcard;
     string trump = ""; 
     int dealer = 0;
     int h = 0;
 
+=======
+>>>>>>> cccb291a33ddcf13ce266d8dfe0ef9d1e23d1424
     if(f.is_open()){ // if open and santized run
         Pack pack(f);
         f.close();
 
+<<<<<<< HEAD
         bool shuffle = argv[2]=="shuffle" ? true : false;
         if(shuffle) pack.shuffle();
         int win_threshold =  atoi(argv[3]);
@@ -87,6 +94,22 @@ int main(int argc, char * argv[]){
   
 
 
+=======
+        bool shuffle =  argv[2]=="shuffle" ? true : false;
+        int win_threshold =  atoi(argv[3]);
+        
+        
+        for(int i = 0; i<4; i++){ // create players to spec
+            Players[i] = Player_factory(argv[4+i*2],argv[5+i*2]);
+        }
+        for(int i = 0; i<4; i++){
+            for(int i = 0; i<4; i++){ // create players to spec
+                Players[i]->add_card(pack.deal_one());
+            }
+        }
+
+
+>>>>>>> cccb291a33ddcf13ce266d8dfe0ef9d1e23d1424
 
 
 
