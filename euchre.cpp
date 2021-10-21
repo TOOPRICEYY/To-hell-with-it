@@ -134,6 +134,10 @@ int main(int argc, char * argv[]){
         //cout << "test lead " << (leader)%4 << endl;
         for(int p = 1; p < 4; ++p){
             trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
+            for(int i = 0; i < 5; ++i) {
+                cout << "player " << Players[(leader+p)%4]->get_name() << 
+                "'s hand: [" << i << "] " << Players[(leader+p)%4]->card(i) << endl;
+            }
             //cout << "test play " << (leader+p)%4 << endl;
         }
         
