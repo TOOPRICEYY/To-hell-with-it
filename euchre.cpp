@@ -132,7 +132,7 @@ int main(int argc, char * argv[]){
 
             //}
             //cout <<"best index: ";
-            cout << Players[index_of_highest_value_card(trick,trump,trick[0])]->get_name()
+            cout<<Players[index_of_highest_value_card(trick,trump,trick[0])]->get_name()
                 << " takes the trick" << endl << endl;
 
         }
