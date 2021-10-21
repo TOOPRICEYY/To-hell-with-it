@@ -167,6 +167,7 @@ class Simple : public Player {
         if(trump_count == handsize) {
             Card c = hand[index_high_trump(trump)]; // store copy
             remove(c); // remove from hand
+            cout << c << " led by " << get_name() << endl;
             return c; // return led card
         }
         Card c = hand[index_high(trump)]; // whats the highest non trump
@@ -183,15 +184,15 @@ class Simple : public Player {
         || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
 
         // temporarily change left bower card to trump suit
-            int left_bower = -1;
-            for(int i=0; i < handsize; ++i) {
-                if(hand[i].is_left_bower(trump)) {left_bower = i;}
-            }
-            Card a;
-            if (left_bower != -1) {
-                a = hand[left_bower];
-                hand[left_bower] = Card(a.get_rank(),trump);
-            }
+        int left_bower = -1;
+        for(int i=0; i < handsize; ++i) {
+            if(hand[i].is_left_bower(trump)) {left_bower = i;}
+        }
+        Card a;
+        if (left_bower != -1) {
+            a = hand[left_bower];
+            hand[left_bower] = Card(a.get_rank(),trump);
+        }
 
         if(contains(led_card.get_suit())) {
             Card c = hand[index_high_trump(led_card.get_suit())];
