@@ -217,6 +217,7 @@ class Simple : public Player {
         sort(h.begin(),h.end());
 
         cout << h[0] << " played by " << get_name() << endl;
+        remove(h[0]);
         return h[0]; 
     }
 
