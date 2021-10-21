@@ -109,17 +109,10 @@ int main(int argc, char * argv[]){
         Players[dealer]->add_and_discard(upcard);
     }
 
-<<<<<<< HEAD
-            //}
-            //cout <<"best index: ";
-            cout<<Players[index_of_highest_value_card(trick,trump,trick[0])]->get_name()
-                << " takes the trick" << endl << endl;
-=======
     if(trump==""){ // screw the dealer
         string s;
         Players[dealer]->make_trump(upcard,true,2,s);
         trump = s;
->>>>>>> b53936d38ec708b0c7f6cef73e146fcc35465784
 
     }
     
