@@ -315,7 +315,7 @@ class Human : public Player {
 
         for(int i = 0; i < handsize; ++i) {
             cout << "Human player " << get_name() << 
-            "'s hand: [" << i << "] " << hand[i] << endl;
+            "'s hand: [" << i << "] " << h[i] << endl;
         }
         cout << "Human player " << get_name() << 
         ", please enter a suit, or \"pass\":" << endl;
@@ -354,38 +354,29 @@ class Human : public Player {
         assert(trump == Card::SUIT_CLUBS || trump == Card::SUIT_DIAMONDS
         || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
         
-        int trump_count = 0; // amount of trumps in hand
-        for(int i = 0; i < handsize; ++i) { // count how many trump cards
-            if (hand[i].is_trump(trump)) {
-                ++trump_count;
-            }
+        array<Card, MAX_HAND_SIZE> h;
+        for(int i=0; i < handsize; ++i) {
+            h[i] = hand[i];
         }
-        if(trump_count == handsize) {
-            Card c = hand[index_high_trump(trump)]; // store copy
-            remove(c); // remove from hand
-            return c; // return led card
+        sort(h.begin(),h.end()); // sort first
+
+        for(int i = 0; i < handsize; ++i) {
+            cout << "Human player " << get_name() << 
+            "'s hand: [" << i << "] " << h[i] << endl;
         }
-        Card c = hand[index_high(trump)]; // whats the highest non trump
-        remove(c);
-        return c;
+        cout << "Human player " << get_name() << 
+        ", please select a card:" << endl;
+        
+        int input;
+        cin >> input;
+
+        return h[input];
     }
 
     virtual Card play_card(const Card &led_card, const string &trump) {
         assert(handsize > 0);
-        assert(trump == Card::SUIT_CLUBS || trump == Card::SUIT_DIAMONDS
-        || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
-
-        if(contains(led_card.get_suit())) {
-            Card c = hand[index_high_trump(led_card.get_suit())];
-            remove(c);
-            return c;
-        }
-        array<Card, 5> h; // then just return the lowest card
-        for(int i=0; i < MAX_HAND_SIZE; ++i) {
-            h[i] = hand[i];
-        }
-        sort(h.begin(),h.end());
-        return h[0]; 
+        
+        lead_card(trump);
     }
 
   static const int MAX_HAND_SIZE = 5;
