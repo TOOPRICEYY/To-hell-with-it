@@ -376,7 +376,7 @@ class Human : public Player {
     virtual Card play_card(const Card &led_card, const string &trump) {
         assert(handsize > 0);
         
-        lead_card(trump);
+        return lead_card(trump);
     }
 
   static const int MAX_HAND_SIZE = 5;
