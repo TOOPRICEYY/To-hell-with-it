@@ -184,6 +184,7 @@ class Simple : public Player {
         || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
 
         // temporarily change left bower card to trump suit
+<<<<<<< HEAD
         int left_bower = -1;
         for(int i=0; i < handsize; ++i) {
             if(hand[i].is_left_bower(trump)) {left_bower = i;}
@@ -193,11 +194,25 @@ class Simple : public Player {
             a = hand[left_bower];
             hand[left_bower] = Card(a.get_rank(),trump);
         }
+=======
+            int left_bower = -1;
+            for(int i=0; i < handsize; ++i) {
+                if(hand[i].is_left_bower(trump)) {left_bower = i;}
+            }
+            Card a;
+            if (left_bower != -1) {
+                a = hand[left_bower]; 
+                hand[left_bower] =  Card(a.get_rank(),trump);
+            }
+>>>>>>> 4879ab0dea71e55bb053274cbc2353f8ad60364e
 
         if(contains(led_card.get_suit())) {
             Card c = hand[index_high_trump(led_card.get_suit())];
             remove(c);
             cout << c << " played by " << get_name() << endl;
+            if (left_bower != -1) {
+                hand[left_bower] = a;
+            }
             return c;
         }
 
