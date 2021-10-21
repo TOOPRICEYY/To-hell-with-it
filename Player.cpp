@@ -211,12 +211,12 @@ class Simple : public Player {
         } */
 
         array<Card, 5> h; // then just return the lowest card
-        int h = handsize;
+        int hi = handsize;
         for(int i=0; i < handsize; ++i) {
             h[i] = hand[i];
         }
         empty_hand();
-        for(int i=0; i < h; ++i) {
+        for(int i=0; i < hi; ++i) {
             add_card(h[i]);
         }
 
