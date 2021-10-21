@@ -1,0 +1,74 @@
+Hand 0
+Adi deals
+Jack of Diamonds turned up
+Barbara passes
+Chi-Chih passes
+Dabbala passes
+Barbara passes
+Chi-Chih passes
+Dabbala orders up Hearts
+King of Spades led by Barbara
+test lead 1
+Ten of Hearts played by Chi-Chih
+test play 2
+Queen of Hearts played by Dabbala
+test play 3
+Ace of Hearts played by Adi
+test play 0
+hand: [0] King of Spades
+hand: [1] Ten of Hearts
+hand: [2] Queen of Hearts
+hand: [3] Ace of Hearts
+best index: 3
+Queen of Spades led by Barbara
+test lead 1
+Nine of Hearts played by Chi-Chih
+test play 2
+Jack of Hearts played by Dabbala
+test play 3
+King of Hearts played by Adi
+test play 0
+hand: [0] Queen of Spades
+hand: [1] Nine of Hearts
+hand: [2] Jack of Hearts
+hand: [3] King of Hearts
+best index: 2
+Jack of Clubs led by Barbara
+test lead 1
+Queen of Clubs played by Chi-Chih
+test play 2
+Nine of Diamonds played by Dabbala
+test play 3
+Nine of Spades played by Adi
+test play 0
+hand: [0] Jack of Clubs
+hand: [1] Queen of Clubs
+hand: [2] Nine of Diamonds
+hand: [3] Nine of Spades
+best index: 1
+Ten of Clubs led by Barbara
+test lead 1
+Queen of Clubs played by Chi-Chih
+test play 2
+Nine of Diamonds played by Dabbala
+test play 3
+Nine of Spades played by Adi
+test play 0
+hand: [0] Ten of Clubs
+hand: [1] Queen of Clubs
+hand: [2] Nine of Diamonds
+hand: [3] Nine of Spades
+best index: 1
+Nine of Clubs led by Barbara
+test lead 1
+Queen of Clubs played by Chi-Chih
+test play 2
+Nine of Diamonds played by Dabbala
+test play 3
+Nine of Spades played by Adi
+test play 0
+hand: [0] Nine of Clubs
+hand: [1] Queen of Clubs
+hand: [2] Nine of Diamonds
+hand: [3] Nine of Spades
+best index: 1
