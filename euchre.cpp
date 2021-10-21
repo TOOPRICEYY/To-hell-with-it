@@ -33,8 +33,8 @@ void createPlayers(array<Player *, 4> &Players, char * argv[]){
     }
 }
 
-int makeTrump(array<Player *, 4> &Players, Pack &pack, int hand, int dealer, string &Trump, Card &upcard){
-    string trump = ""; 
+int makeTrump(array<Player *, 4> &Players, Pack &pack, int hand, int dealer, string &trump, Card &upcard){
+    trump = ""; 
     int h = 0;
     upcard = pack.deal_one();
     cout << "Hand " << hand << endl;
