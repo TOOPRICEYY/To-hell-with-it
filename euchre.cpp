@@ -133,21 +133,26 @@ int main(int argc, char * argv[]){
         trick[0] = Players[(leader)%4]->lead_card(trump);
         //cout << "test lead " << (leader)%4 << endl;
         for(int p = 1; p < 4; ++p){
-            trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
-            for(int i = 0; i < 5; ++i) {
+            for(int c = 0; c < 5-i; ++c) {
                 cout << "player " << Players[(leader+p)%4]->get_name() << 
-                "'s hand: [" << i << "] " << Players[(leader+p)%4]->card(i) << endl;
+                "'s hand: [" << c << "] " << Players[(leader+p)%4]->card(c) << endl;
             }
+            trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
+            
+            
+            
             //cout << "test play " << (leader+p)%4 << endl;
         }
         
-        //for(int v = 0; v < 4; ++v) {
+       // for(int v = 0; v < 4; ++v) {
         //cout << "hand: [" << v << "] " << trick[v] << endl;
 
-        //}
-        //cout <<"best index: ";
-        cout << Players[index_of_highest_value_card(trick,trump,trick[0])]->get_name()
+      //  }
+        //cout <<"best index: " << index_of_highest_value_card(trick,trump,trick[0]);
+
+        cout << Players[(index_of_highest_value_card(trick,trump,trick[0])+leader)%4]->get_name()
             << " takes the trick" << endl << endl;
+        leader = (index_of_highest_value_card(trick,trump,trick[0])+leader)%4;
     }
 
         dealer = (dealer+1)%4;
