@@ -74,8 +74,7 @@ TEST(test_card_less) {
     ASSERT_EQUAL(Card_less(KingClubs,KingDiamonds,trump), true);
     ASSERT_EQUAL(Card_less(KingClubs,QueenSpades,trump),true);
     ASSERT_EQUAL(Card_less(QueenSpades,JackClubs,led_card,trump),true);
-    ASSERT_EQUAL(Card_less(led_card,KingClubs,led_card,trump),true);
+    ASSERT_EQUAL(Card_less(led_card,KingClubs,led_card,trump),false);
     ASSERT_EQUAL(Card_less(JackSpades,QueenSpades,led_card,trump),false);
     ASSERT_EQUAL(Card_less(JackSpades,JackClubs,trump),false);
-    
 }
