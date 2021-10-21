@@ -183,12 +183,12 @@ class Simple : public Player {
         || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
 
         // temporarily change left bower card to trump suit
-            int left_bower = -3;
+            int left_bower = -1;
             for(int i=0; i < handsize; ++i) {
                 if(hand[i].is_left_bower(trump)) {left_bower = i;}
             }
             Card a;
-            if (left_bower != -3) {
+            if (left_bower != -1) {
                 a = hand[left_bower];
                 hand[left_bower] = Card(a.get_rank(),trump);
             }
@@ -200,7 +200,7 @@ class Simple : public Player {
             return c;
         }
 
-        if (left_bower != -3) {
+        if (left_bower != -1) {
             hand[left_bower] = a;
         }
         /*if(contains(trump)) {
