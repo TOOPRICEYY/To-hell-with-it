@@ -50,9 +50,9 @@ int main(int argc, char * argv[]){
         Pack pack(f);
         f.close();
 
-        bool shuffle = argv[2]=="shuffle" ? true : false;
+        bool shuffle = string(strlen(argv[2]), argv[2])=="shuffle" ? true : false;
         if(shuffle) pack.shuffle();
-        int win_threshold =  atoi(argv[3]);
+        //int win_threshold =  atoi(argv[3]);
         
         for(int i = 0; i<4; i++){ // create players to spec
             Players[i] = Player_factory(argv[4+i*2],argv[5+i*2]);
@@ -71,9 +71,10 @@ int main(int argc, char * argv[]){
             cout << Players[dealer] << " Deals" << endl;
             cout << upcard << " turned up" << endl;
 
-            for(int i = 0; i<4; i++){ // create players to spec
+            for(int i = 0; i<4; i++){ // make trump
                 int itter = (i+dealer)%4;
-                if(Players[itter]->make_trump(upcard,dealer==itter,h,upcard.get_suit())){
+                string s = upcard.get_suit();
+                if(Players[itter]->make_trump(upcard,dealer==itter,h,s)){
                     trump = upcard.get_suit();
                     break;
                 }
