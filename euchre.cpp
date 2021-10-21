@@ -102,6 +102,7 @@ int main(int argc, char * argv[]){
             }
             h++;
         }
+        cout << endl;
         if(h==1){ //if trump declared in first round
             Players[dealer]->add_and_discard(upcard);
         }
@@ -126,12 +127,13 @@ int main(int argc, char * argv[]){
                 //cout << "test play " << (leader+p)%4 << endl;
             }
             
-            for(int v = 0; v < 4; ++v) {
-            cout << "hand: [" << v << "] " << trick[v] << endl;
+            //for(int v = 0; v < 4; ++v) {
+            //cout << "hand: [" << v << "] " << trick[v] << endl;
 
-            }
-            cout <<"best index: "<< 
-            index_of_highest_value_card(trick,trump,trick[0])<<endl;
+            //}
+            //cout <<"best index: ";
+            cout << Players[index_of_highest_value_card(trick,trump,trick[0])]->get_name()
+                << " takes the trick" << endl << endl;
 
         }
 
