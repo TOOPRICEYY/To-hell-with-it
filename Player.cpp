@@ -53,6 +53,9 @@ class Simple : public Player {
         for(int i=0; i < handsize; ++i) {
             if(hand[i].get_suit() == upcard.get_suit() && 
             hand[i].is_face()) {++count;}
+            // already accounts for right bower
+            if(hand[i].is_left_bower(upcard.get_suit())) {++count;}
+            // considers trump card, left bower too
         }
         return count;
     }
@@ -63,6 +66,7 @@ class Simple : public Player {
             if(hand[i].get_suit() == suit && 
             hand[i].is_face()) {++count;}
         }
+        // do not account for left bower, cannot pick that suit
         return count;
     }
 
@@ -70,10 +74,11 @@ class Simple : public Player {
         return name;
     }
 
-    virtual void add_card(const Card &c, const string trump) { // helper: w/ trump
+    virtual void add_card(const Card &c,const string trump) { // helper: w/ trump
         assert(handsize < MAX_HAND_SIZE);
         if(contains(c)) {return;}
         if(!contains(c)) {
+
             int index = handsize;
             while (index > 0 && Card_less(c,hand[index-1],trump)) {
                 hand[index] = hand[index-1];
