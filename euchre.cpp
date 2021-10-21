@@ -16,7 +16,7 @@ using namespace std;
 void deal(Pack &pack, array<Player *, 4> Players, int dealer){
     int itter;
           for(int c = 0; c<2; c++){
-            for(int i = 0; i<4; i++){ //Deal sdasd asdasd
+            for(int i = 0; i<4; i++){
                 itter = (i+dealer)%4;
                 Players[itter]->add_card(pack.deal_one());
                 Players[itter]->add_card(pack.deal_one());
