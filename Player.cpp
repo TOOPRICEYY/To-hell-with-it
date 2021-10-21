@@ -217,7 +217,7 @@ class Simple : public Player {
         }
         empty_hand();
         for(int i=0; i < hi; ++i) {
-            add_card(h[i]);
+            add_card(h[i],trump);
         }
 
         cout << h[0] << " played by " << get_name() << endl;
