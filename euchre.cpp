@@ -123,7 +123,8 @@ int main(int argc, char * argv[]){
             cout << "hand: [" << v << "] " << trick[v] << endl;
 
             }
-            cout <<"best index: "<< index_of_highest_value_card(trick,trump,trick[0])<<endl;
+            cout <<"best index: "<< 
+            index_of_highest_value_card(trick,trump,trick[0])<<endl;
 
         }
 
