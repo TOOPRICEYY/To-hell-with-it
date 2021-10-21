@@ -166,7 +166,7 @@ class Simple : public Player {
         cout << c << " led by " << get_name() << endl;
         return c;
     }
-
+/*
     int index_highest_valued(const Card &led_card, const string &trump){
            Card hand_copy[handsize];
            for(int i=0; i < handsize; ++i) {
@@ -189,6 +189,7 @@ class Simple : public Player {
         if(Card_less(arr[front],arr[back],led_card,trump)) index = back;
         return index;
     }
+    */
 
     virtual Card play_card(const Card &led_card, const string &trump) {
         assert(handsize > 0);
