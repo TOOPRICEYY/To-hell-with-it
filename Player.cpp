@@ -21,7 +21,7 @@ class Simple : public Player {
         empty_hand();
     }
 
-    Card card(int i) {
+    virtual Card card(int i) {
         return hand[i];
     }
     
@@ -255,6 +255,9 @@ class Human : public Player {
     Human(string name_in) { // initializes player
         name = name_in;
         empty_hand();
+    }
+    virtual Card card(int i) {
+        return hand[i];
     }
     
     void empty_hand() {

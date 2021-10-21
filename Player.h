@@ -36,6 +36,8 @@ class Player {
   //EFFECTS  Player adds one card to hand and removes one card from hand.
   virtual void add_and_discard(const Card &upcard) = 0;
 
+  virtual Card card(int i) = 0;
+
   //REQUIRES Player has at least one card, trump is a valid suit
   //EFFECTS  Leads one Card from Player's hand according to their strategy
   //  "Lead" means to play the first Card in a trick.  The card

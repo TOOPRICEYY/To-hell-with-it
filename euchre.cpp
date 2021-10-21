@@ -17,7 +17,7 @@ void deal(Pack &pack, array<Player *, 4> Players, int dealer){
     int itter;
           for(int c = 0; c<2; c++){
             for(int i = 0; i<4; i++){
-                itter = (i+dealer)%4;
+                itter = (i+dealer+1)%4;
                 Players[itter]->add_card(pack.deal_one());
                 Players[itter]->add_card(pack.deal_one());
                 if((i+c)%2 == 0){
@@ -88,10 +88,12 @@ int main(int argc, char * argv[]){
             for(int i = 0; i<4; i++){ // make trump
                 int itter = (i+dealer+1)%4;
                 string s;
+                /*
                 for(int i = 0; i < 5; ++i) {
-                    cout << "Human player " << Players[itter]->get_name() << 
-                    "'s hand: [" << i << "] " << Players[itter]-> << endl;
+                    cout << "player " << Players[itter]->get_name() << 
+                    "'s hand: [" << i << "] " << Players[itter]->card(i) << endl;
                 }
+                */
                 if(Players[itter]->make_trump(upcard,itter==dealer,h+1,s)){
                     trump = s;
                     break;
@@ -118,10 +120,10 @@ int main(int argc, char * argv[]){
         for(int i = 0; i < 5; ++i){
             trick = {};
             trick[0] = Players[(leader)%4]->lead_card(trump);
-            cout << "test lead " << (leader)%4 << endl;
+            //cout << "test lead " << (leader)%4 << endl;
             for(int p = 1; p < 4; ++p){
                 trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
-                cout << "test play " << (leader+p)%4 << endl;
+                //cout << "test play " << (leader+p)%4 << endl;
             }
             
             for(int v = 0; v < 4; ++v) {
