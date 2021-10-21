@@ -71,21 +71,23 @@ int main(int argc, char * argv[]){
             cout << *Players[dealer] << " deals" << endl;
             cout << upcard << " turned up" << endl;
             
-            for(int i = 0; i<4; i++){ // make trump
+            for(int i = 0; i<3; i++){ // make trump
                 int itter = (i+dealer+1)%4;
                 string s;
-                if(Players[itter]->make_trump(upcard,dealer==itter,h+1,s)){
+                if(Players[itter]->make_trump(upcard,false,h+1,s)){
                     trump = s;
                     break;
                 }
             }
             h++;
         }
-        if(h==0){ //if trump declared in first round
+        if(h==1){ //if trump declared in first round
             Players[dealer]->add_and_discard(upcard);
         }
 
-        if(h>=2){ // screw the dealer
+        if(h>2){ // screw the dealer
+            Players[dealer]->make_trump(upcard,true,h+1,s);
+            trump = s;
 
         }
 
