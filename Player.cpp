@@ -167,12 +167,40 @@ class Simple : public Player {
         return c;
     }
 
+    int index_highest_valued(const Card &led_card, const string &trump){
+           Card hand_copy[handsize];
+           for(int i=0; i < handsize; ++i) {
+            hand_copy[i]= hand[i];
+           }
+        return index_highest_value_recur(hand_copy, 0, handsize,led_card, trump);   
+    }
+
+    int index_highest_value_recur(Card arr[], int start, int end,const Card &led_card, const string &trump){
+        int index = end;
+        if(end-start==1){
+             if(Card_less(arr[end],arr[start],led_card,trump)) index = start;
+             return index;            
+        }else if(end<=start){
+            return start;
+        }
+        int front = index_highest_value_recur(arr,start,end/2,led_card,trump);
+        int back = index_highest_value_recur(arr,end/2+1,end,led_card,trump);
+        index = front;
+        if(Card_less(arr[front],arr[back],led_card,trump)) index = back;
+        return index;
+    }
+
     virtual Card play_card(const Card &led_card, const string &trump) {
         assert(handsize > 0);
         assert(trump == Card::SUIT_CLUBS || trump == Card::SUIT_DIAMONDS
         || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
 
-        if(contains(led_card.get_suit())) {
+        if(contains(trump)) {
+            Card c = hand[index_high_trump(trump)];
+            remove(c);
+            return c;
+        }
+        if(contains(led_card)) {
             Card c = hand[index_high_trump(led_card.get_suit())];
             remove(c);
             return c;
@@ -183,7 +211,7 @@ class Simple : public Player {
         }
         sort(h.begin(),h.end());
 
-        cout << h[0] << "played by " << h[0] << endl;
+        cout << h[0] << "played by " << get_name() << endl;
         return h[0]; 
     }
 
