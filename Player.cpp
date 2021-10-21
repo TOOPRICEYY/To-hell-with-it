@@ -20,7 +20,12 @@ class Simple : public Player {
         name = name_in;
         empty_hand();
     }
+
+    Card card(int i) {
+        return hand[i];
+    }
     
+
     void empty_hand() {
         for (int i = 0; i < handsize; ++i) {
           remove(hand[handsize-1]);
@@ -312,7 +317,7 @@ class Human : public Player {
             cout << get_name() << " passes" << endl;
             return false;
         }
-        cout << get_name() << " orders up " << order_up_suit << endl;
+        cout << get_name() << " orders up " << order_up_suit << endl << endl;
         return true;
     }
 
