@@ -188,12 +188,12 @@ class Simple : public Player {
             cout << c << " played by " << get_name() << endl;
             return c;
         }
-        if(contains(trump)) {
+        /*if(contains(trump)) {
             Card c = hand[index_high_trump(trump)];
             remove(c);
             cout << c << " played by " << get_name() << endl;
             return c;
-        }
+        } */
 
         array<Card, 5> h; // then just return the lowest card
         for(int i=0; i < MAX_HAND_SIZE; ++i) {
