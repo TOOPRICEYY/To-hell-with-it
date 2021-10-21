@@ -101,14 +101,19 @@ class Simple : public Player {
         if (round == 1) {
             if(trump_face(upcard) >= 2) {
                 order_up_suit = upcard.get_suit();
+                cout << get_name() << " orders up " << order_up_suit << endl;
                 return true;
             }
-            else {return false;}
+            else {
+                cout << get_name() << " passes" << endl;
+                return false;
+            }
         }
         if (round == 2) {
             string same_color=Suit_next(upcard.get_suit());
             if(is_dealer) {
                 order_up_suit = same_color;
+                cout << get_name() << " orders up " << order_up_suit << endl;
                 return true;
             }
             else if (!is_dealer) {
@@ -116,9 +121,13 @@ class Simple : public Player {
                     order_up_suit = same_color;
                     return true;
                 }
-                else {return false;}
+                else {
+                    cout << get_name() << " passes" << endl;
+                    return false;
+                    }
             }
         }
+        cout << get_name() << " passes" << endl;
         return false;
     }
 
@@ -152,6 +161,8 @@ class Simple : public Player {
         }
         Card c = hand[index_high(trump)]; // whats the highest non trump
         remove(c);
+
+        cout << c << " led by " << get_name() << endl;
         return c;
     }
 
@@ -170,6 +181,8 @@ class Simple : public Player {
             h[i] = hand[i];
         }
         sort(h.begin(),h.end());
+
+        cout << h[0] << "played by " << h[0] << endl;
         return h[0]; 
     }
 
@@ -253,23 +266,6 @@ class Human : public Player {
         --handsize;
     }
 
-    int trump_face(const Card &upcard) const { // helper
-        int count = 0;
-        for(int i=0; i < handsize; ++i) {
-            if(hand[i].get_suit() == upcard.get_suit() && 
-            hand[i].is_face()) {++count;}
-        }
-        return count;
-    }
-
-    int trump_face(string &suit) const { // helper
-        int count = 0;
-        for(int i=0; i < handsize; ++i) {
-            if(hand[i].get_suit() == suit && 
-            hand[i].is_face()) {++count;}
-        }
-        return count;
-    }
 
     virtual const string & get_name() const{
         return name;
@@ -369,6 +365,8 @@ class Human : public Player {
         
         int input;
         cin >> input;
+
+        cout << h[input] << " led by " << get_name() << endl;
 
         return h[input];
     }
