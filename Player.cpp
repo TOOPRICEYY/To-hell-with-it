@@ -80,6 +80,27 @@ class Simple : public Player {
         }
     }
 
+    Card index_highest(array<Card, 5>, const Card &c, 
+        const string trump, const Card led) { // helper: w/ trump
+        assert(handsize < MAX_HAND_SIZE);
+        if(contains(c)) {return;}
+        if(!contains(c)) {
+            array<Card, MAX_HAND_SIZE> h;
+            for(int i=0; i < handsize; ++i) {
+                h[i] = hand[i];
+            }
+            int index = handsize;
+            while (index > 0 && Card_less(c,hand[index-1],led,trump)) {
+                hand[index] = hand[index-1];
+                --index;
+            }
+            hand[index] = c;
+            ++handsize;
+        }
+        return hand[4];
+    }
+
+
     virtual void add_card(const Card &c) {
         assert(handsize < MAX_HAND_SIZE);
         if(contains(c)) {return;}
@@ -255,10 +276,6 @@ class Human : public Player {
         return index(a) != -1;
     }
 
-    bool contains(const string suit) { // helper
-        return index(suit) != -1;
-    }
-
     void remove(Card a) { // helper
         if(!contains(a)) {return;}
         for (int i = index(a); i < handsize-1; ++i) {
@@ -270,20 +287,6 @@ class Human : public Player {
 
     virtual const string & get_name() const{
         return name;
-    }
-
-    virtual void add_card(const Card &c, const string trump) { // helper: w/ trump
-        assert(handsize < MAX_HAND_SIZE);
-        if(contains(c)) {return;}
-        if(!contains(c)) {
-            int index = handsize;
-            while (index > 0 && Card_less(c,hand[index-1],trump)) {
-                hand[index] = hand[index-1];
-                --index;
-            }
-            hand[index] = c;
-            ++handsize;
-        }
     }
 
     virtual void add_card(const Card &c) {
@@ -346,7 +349,7 @@ class Human : public Player {
         add_card(upcard);
     }
 
-    virtual Card lead_card(const std::string &trump) {
+    Card gen_play_card(const std::string &trump){
         assert(handsize > 0);
         assert(trump == Card::SUIT_CLUBS || trump == Card::SUIT_DIAMONDS
         || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
@@ -367,15 +370,25 @@ class Human : public Player {
         int input;
         cin >> input;
 
-        cout << h[input] << " led by " << get_name() << endl;
+        
 
         return h[input];
     }
 
+    virtual Card lead_card(const std::string &trump) {
+        assert(handsize > 0);
+        Card c = gen_play_card(trump);
+        cout << c << " led by " << get_name() << endl;
+
+        return c;
+    }
+
     virtual Card play_card(const Card &led_card, const string &trump) {
         assert(handsize > 0);
-        
-        return lead_card(trump);
+          Card c = gen_play_card(trump);
+        cout << c << " played by " << get_name() << endl;
+
+        return c;
     }
 
   static const int MAX_HAND_SIZE = 5;
@@ -391,37 +404,6 @@ class Human : public Player {
                 return i;
             }
         }
-        return -1;
-    }
-
-    int index(const string suit) const{ // index given suit
-        for(int i=0; i < handsize; ++i) {
-            if(hand[i].get_suit() == suit) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    int index_high_trump(const string trump) const{ // highest card, trump
-        int high = 0;
-        for(int i=0; i < handsize; ++i) {
-            if(hand[i].get_suit() == trump) {
-                high = i;
-            }
-        }
-        if(high < 5 && high >= 0) {return high;}
-        return -1;
-    }
-
-    int index_high(const string trump) const{ // highest card, no trump
-        int high = 0;
-        for(int i=0; i < handsize; ++i) {
-            if(hand[i].get_suit() != trump) {
-                high = i;
-            }
-        }
-        if(high < 5 && high >= 0) {return high;}
         return -1;
     }
 };
