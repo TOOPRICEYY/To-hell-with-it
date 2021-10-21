@@ -87,7 +87,7 @@ TEST(test_simple_player_lead_card) {
   bob->add_and_discard(
     Card(Card::RANK_NINE, Card::SUIT_HEARTS) // upcard
   );
-
+  cout << "problem is here" << endl;
   // Bob leads
   Card card_led = bob->lead_card(Card::SUIT_HEARTS);
 
