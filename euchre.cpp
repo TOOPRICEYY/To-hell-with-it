@@ -65,21 +65,27 @@ int main(int argc, char * argv[]){
         h = 0;
 
 
-        while(trump == ""){
+        while(trump == "" && h<2){
             upcard = pack.deal_one();
             cout << "Hand " << h << endl;
-            cout << Players[dealer] << " Deals" << endl;
+            cout << *Players[dealer] << " deals" << endl;
             cout << upcard << " turned up" << endl;
-
+            
             for(int i = 0; i<4; i++){ // make trump
-                int itter = (i+dealer)%4;
-                string s = upcard.get_suit();
-                if(Players[itter]->make_trump(upcard,dealer==itter,h,s)){
-                    trump = upcard.get_suit();
+                int itter = (i+dealer+1)%4;
+                string s;
+                if(Players[itter]->make_trump(upcard,dealer==itter,h+1,s)){
+                    trump = s;
                     break;
                 }
             }
+            h++;
+        }
+        if(h==0){ //if trump declared in first round
+            Players[dealer]->add_and_discard(upcard);
+        }
 
+        if(h>=2){ // screw the dealer
 
         }
 
@@ -96,7 +102,7 @@ int main(int argc, char * argv[]){
 
 
     }else{
-        cout << "please enter a valid pack in file";
+        cout << "please enter a valid pack in file ";
         return 1;
     }
 
