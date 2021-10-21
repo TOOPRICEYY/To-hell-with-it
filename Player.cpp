@@ -119,6 +119,7 @@ class Simple : public Player {
             else if (!is_dealer) {
                 if(trump_face(same_color) >= 1) {
                     order_up_suit = same_color;
+                    cout << get_name() << " orders up " << order_up_suit << endl;
                     return true;
                 }
                 else {
