@@ -189,14 +189,17 @@ class Simple : public Player {
             }
             Card a;
             if (left_bower != -1) {
-                a = hand[left_bower];
-                hand[left_bower] = Card(a.get_rank(),trump);
+                a = hand[left_bower]; 
+                hand[left_bower] =  Card(a.get_rank(),trump);
             }
 
         if(contains(led_card.get_suit())) {
             Card c = hand[index_high_trump(led_card.get_suit())];
             remove(c);
             cout << c << " played by " << get_name() << endl;
+            if (left_bower != -1) {
+                hand[left_bower] = a;
+            }
             return c;
         }
 
