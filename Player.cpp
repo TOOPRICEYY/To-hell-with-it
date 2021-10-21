@@ -188,7 +188,7 @@ class Simple : public Player {
             cout << c << " played by " << get_name() << endl;
             return c;
         }
-        if(contains(led_card)) {
+        if(contains(led_card.get_suit())) {
             Card c = hand[index_high_trump(led_card.get_suit())];
             remove(c);
             cout << c << " played by " << get_name() << endl;
