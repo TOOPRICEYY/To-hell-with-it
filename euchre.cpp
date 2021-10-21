@@ -35,6 +35,7 @@ void createPlayers(array<Player *, 4> &Players, char * argv[]){
 
 int makeTrump(array<Player *, 4> &Players, Pack &pack, int hand, int dealer, string &trump, Card &upcard){
     trump = ""; 
+    int order_up = -1;
     int h = 0;
     upcard = pack.deal_one();
     cout << "Hand " << hand << endl;
@@ -54,6 +55,7 @@ int makeTrump(array<Player *, 4> &Players, Pack &pack, int hand, int dealer, str
             */
             if(Players[itter]->make_trump(upcard,itter==dealer,h+1,s)){
                 trump = s;
+                order_up = itter;
                 break;
             }
             
@@ -71,7 +73,7 @@ int makeTrump(array<Player *, 4> &Players, Pack &pack, int hand, int dealer, str
         trump = s;
 
     }
-    return 0;
+    return order_up;
 }
 
 int index_of_highest_value_card(array<Card,4> &trick, string &trump, Card &lead){
@@ -123,10 +125,13 @@ int main(int argc, char * argv[]){
     
     hand = 0;
 
+    //int order_up = 
     makeTrump(Players, pack, hand, dealer, trump, upcard);
     
     int leader = dealer+1;
     array<Card, 4> trick = {};
+    //int trick_wins[5];
+    //trick_wins[0] = 0;
     
     for(int i = 0; i < 5; ++i){
         trick = {};
@@ -153,6 +158,7 @@ int main(int argc, char * argv[]){
         cout << Players[(index_of_highest_value_card(trick,trump,trick[0])+leader)%4]->get_name()
             << " takes the trick" << endl << endl;
         leader = (index_of_highest_value_card(trick,trump,trick[0])+leader)%4;
+        //trick_wins[i] = leader;
     }
 
         dealer = (dealer+1)%4;
