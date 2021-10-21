@@ -182,18 +182,19 @@ class Simple : public Player {
         assert(trump == Card::SUIT_CLUBS || trump == Card::SUIT_DIAMONDS
         || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
 
-        if(contains(trump)) {
-            Card c = hand[index_high_trump(trump)];
-            remove(c);
-            cout << c << " played by " << get_name() << endl;
-            return c;
-        }
         if(contains(led_card.get_suit())) {
             Card c = hand[index_high_trump(led_card.get_suit())];
             remove(c);
             cout << c << " played by " << get_name() << endl;
             return c;
         }
+        if(contains(trump)) {
+            Card c = hand[index_high_trump(trump)];
+            remove(c);
+            cout << c << " played by " << get_name() << endl;
+            return c;
+        }
+
         array<Card, 5> h; // then just return the lowest card
         for(int i=0; i < MAX_HAND_SIZE; ++i) {
             h[i] = hand[i];
