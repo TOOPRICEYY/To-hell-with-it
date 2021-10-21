@@ -51,7 +51,6 @@ int main(int argc, char * argv[]){
         return 1;
     }
 
-    
     array<Player *, 4> Players;
     Card upcard;
     string trump = ""; 
@@ -59,84 +58,91 @@ int main(int argc, char * argv[]){
     int h = 0;
     int hand = 0;
 
-    if(f.is_open()){ // if open and santized run
-        Pack pack(f);
-        f.close();
-        string s = argv[2];
-        bool shuffle = s=="shuffle" ? true : false;
-        if(shuffle) pack.shuffle();
-        //int win_threshold =  atoi(argv[3]);
-        
-        for(int i = 0; i<4; i++){ // create players to spec
-            Players[i] = Player_factory(argv[4+i*2],argv[5+i*2]);
-        }
+    if(!f.is_open()) {
+        string pack_filename = argv[1];
+        cout << "Error opening " << pack_filename << endl;
+        return 1; // return nonzero number
+    }
 
+    Pack pack(f);
+    f.close();
+    string s = argv[2];
+    bool shuffle = s=="shuffle" ? true : false;
+    if(shuffle) pack.shuffle();
+    //int win_threshold =  atoi(argv[3]);
     
+    for(int i = 0; i<4; i++){ // create players to spec
+        Players[i] = Player_factory(argv[4+i*2],argv[5+i*2]);
+    }
 
-        deal(pack, Players, dealer);
-        trump = ""; 
-        h = 0;
-        hand = 0;
+    deal(pack, Players, dealer);
+    trump = ""; 
+    h = 0;
+    hand = 0;
 
-        upcard = pack.deal_one();
-        cout << "Hand " << hand << endl;
-        cout << *Players[dealer] << " deals" << endl;
-        cout << upcard << " turned up" << endl;
+    upcard = pack.deal_one();
+    cout << "Hand " << hand << endl;
+    cout << *Players[dealer] << " deals" << endl;
+    cout << upcard << " turned up" << endl;
 
-        while(trump == "" && h<2){
-            
-            for(int i = 0; i<4; i++){ // make trump
-                int itter = (i+dealer+1)%4;
-                string s;
-                /*
-                for(int i = 0; i < 5; ++i) {
-                    cout << "player " << Players[itter]->get_name() << 
-                    "'s hand: [" << i << "] " << Players[itter]->card(i) << endl;
-                }
-                */
-                if(Players[itter]->make_trump(upcard,itter==dealer,h+1,s)){
-                    trump = s;
-                    break;
-                }
-                
-            }
-            h++;
-        }
-        cout << endl;
-        if(h==1){ //if trump declared in first round
-            Players[dealer]->add_and_discard(upcard);
-        }
-
-        if(trump==""){ // screw the dealer
+    while(trump == "" && h<2){
+    
+        for(int i = 0; i<4; i++){ // make trump
+            int itter = (i+dealer+1)%4;
             string s;
-            Players[dealer]->make_trump(upcard,true,2,s);
-            trump = s;
-
-        }
-
-        
-        int leader = dealer+1;
-        array<Card, 4> trick = {};
-        
-        for(int i = 0; i < 5; ++i){
-            trick = {};
-            trick[0] = Players[(leader)%4]->lead_card(trump);
-            //cout << "test lead " << (leader)%4 << endl;
-            for(int p = 1; p < 4; ++p){
-                trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
-                //cout << "test play " << (leader+p)%4 << endl;
+            /*
+            for(int i = 0; i < 5; ++i) {
+                cout << "player " << Players[itter]->get_name() << 
+                "'s hand: [" << i << "] " << Players[itter]->card(i) << endl;
+            }
+            */
+            if(Players[itter]->make_trump(upcard,itter==dealer,h+1,s)){
+                trump = s;
+                break;
             }
             
-            //for(int v = 0; v < 4; ++v) {
-            //cout << "hand: [" << v << "] " << trick[v] << endl;
+        }
+        h++;
+    }
+    cout << endl;
+    if(h==1){ //if trump declared in first round
+        Players[dealer]->add_and_discard(upcard);
+    }
 
+<<<<<<< HEAD
             //}
             //cout <<"best index: ";
             cout<<Players[index_of_highest_value_card(trick,trump,trick[0])]->get_name()
                 << " takes the trick" << endl << endl;
+=======
+    if(trump==""){ // screw the dealer
+        string s;
+        Players[dealer]->make_trump(upcard,true,2,s);
+        trump = s;
+>>>>>>> b53936d38ec708b0c7f6cef73e146fcc35465784
 
+    }
+    
+    int leader = dealer+1;
+    array<Card, 4> trick = {};
+    
+    for(int i = 0; i < 5; ++i){
+        trick = {};
+        trick[0] = Players[(leader)%4]->lead_card(trump);
+        //cout << "test lead " << (leader)%4 << endl;
+        for(int p = 1; p < 4; ++p){
+            trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
+            //cout << "test play " << (leader+p)%4 << endl;
         }
+        
+        //for(int v = 0; v < 4; ++v) {
+        //cout << "hand: [" << v << "] " << trick[v] << endl;
 
+        //}
+        //cout <<"best index: ";
+        cout << Players[index_of_highest_value_card(trick,trump,trick[0])]->get_name()
+            << " takes the trick" << endl << endl;
+    }
 
         dealer = (dealer+1)%4;
   
@@ -144,15 +150,6 @@ int main(int argc, char * argv[]){
 
 
 
-
-
-
-
-
-    }else{
-        cout << "please enter a valid pack in file ";
-        return 1;
-    }
 
     for(int i = 0; i<4; i++) delete Players[i];
     
