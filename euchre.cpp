@@ -107,14 +107,16 @@ int main(int argc, char * argv[]){
         }
 
         
-        int leader = 0;
+        int leader = dealer+1;
         array<Card, 4> trick = {};
         
         for(int i = 0; i < 5; ++i){
             trick = {};
             trick[0] = Players[(leader)%4]->lead_card(trump);
+            cout << "test lead " << (leader)%4 << endl;
             for(int p = 1; p < 4; ++p){
                 trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
+                cout << "test play " << (leader+p)%4 << endl;
             }
             
             for(int v = 0; v < 4; ++v) {
