@@ -49,8 +49,8 @@ int main(int argc, char * argv[]){
     if(f.is_open()){ // if open and santized run
         Pack pack(f);
         f.close();
-
-        bool shuffle = string(strlen(argv[2]), argv[2])=="shuffle" ? true : false;
+        string s = argv[2];
+        bool shuffle = s=="shuffle" ? true : false;
         if(shuffle) pack.shuffle();
         //int win_threshold =  atoi(argv[3]);
         
