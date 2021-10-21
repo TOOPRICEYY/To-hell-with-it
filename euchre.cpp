@@ -27,6 +27,18 @@ void deal(Pack &pack, array<Player *, 4> Players, int dealer){
         }
 }
 
+int index_of_highest_value_card(array<Card,4> &trick, string &trump, Card &lead){
+    int index = 0;
+    if(Card_less(trick[0],trick[1],lead, trump)) index = 1;
+
+    int index2 = 2;
+    if(Card_less(trick[2],trick[3],lead,trump)) index2 = 3;
+
+    if(Card_less(trick[index],trick[index2],lead,trump)) index = index2;
+
+    return index;
+}
+
 int main(int argc, char * argv[]){
 
     ifstream f(argv[1]);
@@ -45,6 +57,7 @@ int main(int argc, char * argv[]){
     string trump = ""; 
     int dealer = 0;
     int h = 0;
+    int hand = 0;
 
     if(f.is_open()){ // if open and santized run
         Pack pack(f);
@@ -63,13 +76,14 @@ int main(int argc, char * argv[]){
         deal(pack, Players, dealer);
         trump = ""; 
         h = 0;
+        hand = 0;
 
+        upcard = pack.deal_one();
+        cout << "Hand " << hand << endl;
+        cout << *Players[dealer] << " deals" << endl;
+        cout << upcard << " turned up" << endl;
 
         while(trump == "" && h<2){
-            upcard = pack.deal_one();
-            cout << "Hand " << h << endl;
-            cout << *Players[dealer] << " deals" << endl;
-            cout << upcard << " turned up" << endl;
             
             for(int i = 0; i<3; i++){ // make trump
                 int itter = (i+dealer+1)%4;
@@ -85,9 +99,29 @@ int main(int argc, char * argv[]){
             Players[dealer]->add_and_discard(upcard);
         }
 
-        if(h>2){ // screw the dealer
-            Players[dealer]->make_trump(upcard,true,h+1,s);
+        if(trump==""){ // screw the dealer
+            string s;
+            Players[dealer]->make_trump(upcard,true,2,s);
             trump = s;
+
+        }
+
+        
+        int leader = 0;
+        array<Card, 4> trick = {};
+        
+        for(int i = 0; i < 5; ++i){
+            trick = {};
+            trick[0] = Players[(leader)%4]->lead_card(trump);
+            for(int p = 1; p < 4; ++p){
+                trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
+            }
+            
+            for(int v = 0; v < 4; ++v) {
+            cout << "hand: [" << v << "] " << trick[v] << endl;
+
+            }
+            cout <<"best index: "<< index_of_highest_value_card(trick,trump,trick[0])<<endl;
 
         }
 

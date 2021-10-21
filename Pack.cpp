@@ -69,7 +69,7 @@ for(int c = 0; c<4; c++){
   }
   void Pack::shuffle(){
       next = 0;
-      print_card_array(cards);
+      //print_card_array(cards);
       std::array<Card, PACK_SIZE/2> first_half;
       std::array<Card, PACK_SIZE/2> second_half;
       for(int i = 0; i<7; ++i){
@@ -80,8 +80,8 @@ for(int c = 0; c<4; c++){
         for(int c = 0; c<24; ++c){
             cards[c] = (c+1)%2==0 ? first_half[(c-1)/2] : second_half[(c)/2];
         }
-        std::cout << "round " << i << std::endl;
-        print_card_array(cards);
+        //std::cout << "round " << i << std::endl;
+        //print_card_array(cards);
       }
       
   }
