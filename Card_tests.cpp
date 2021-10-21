@@ -59,6 +59,11 @@ TEST(test_operators) {
 
     ASSERT_EQUAL(Card_less(Ten_of_hearts,Queen_of_spades,Card::SUIT_HEARTS),false); // trump tests
     ASSERT_EQUAL(Card_less(Ten_of_hearts,Queen_of_spades,Card::SUIT_DIAMONDS),true);
+}
 
+TEST(test_card_less) {
 
+    Card Queen_of_Clubs(Card::RANK_QUEEN,Card::SUIT_CLUBS);
+    Card Queen_of_Diamonds(Card::RANK_QUEEN,Card::SUIT_DIAMONDS);
+    Card led_card(Card::
 }
