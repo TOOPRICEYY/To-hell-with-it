@@ -63,7 +63,19 @@ TEST(test_operators) {
 
 TEST(test_card_less) {
 
-    Card Queen_of_Clubs(Card::RANK_QUEEN,Card::SUIT_CLUBS);
-    Card Queen_of_Diamonds(Card::RANK_QUEEN,Card::SUIT_DIAMONDS);
-    Card led_card(Card::
+    Card KingClubs(Card::RANK_KING,Card::SUIT_CLUBS);
+    Card KingDiamonds(Card::RANK_KING,Card::SUIT_DIAMONDS);
+    Card QueenSpades(Card::RANK_QUEEN,Card::SUIT_SPADES);
+    Card JackClubs(Card::RANK_JACK,Card::SUIT_CLUBS);
+    Card AceHearts(Card::RANK_ACE,Card::SUIT_HEARTS);
+    Card JackSpades(Card::RANK_JACK,Card::SUIT_SPADES);
+    Card led_card(Card::RANK_NINE,Card::SUIT_HEARTS);
+    string trump = "Spades";
+    ASSERT_EQUAL(Card_less(KingClubs,KingDiamonds,trump), true);
+    ASSERT_EQUAL(Card_less(KingClubs,QueenSpades,trump),true);
+    ASSERT_EQUAL(Card_less(QueenSpades,JackClubs,led_card,trump),true);
+    ASSERT_EQUAL(Card_less(led_card,KingClubs,led_card,trump),true);
+    ASSERT_EQUAL(Card_less(JackSpades,QueenSpades,led_card,trump),false);
+    ASSERT_EQUAL(Card_less(JackSpades,JackClubs,trump),false);
+    
 }
