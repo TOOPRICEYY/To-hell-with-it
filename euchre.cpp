@@ -85,13 +85,18 @@ int main(int argc, char * argv[]){
 
         while(trump == "" && h<2){
             
-            for(int i = 0; i<3; i++){ // make trump
+            for(int i = 0; i<4; i++){ // make trump
                 int itter = (i+dealer+1)%4;
                 string s;
-                if(Players[itter]->make_trump(upcard,false,h+1,s)){
+                for(int i = 0; i < 5; ++i) {
+                    cout << "Human player " << Players[itter]->get_name() << 
+                    "'s hand: [" << i << "] " << Players[itter]-> << endl;
+                }
+                if(Players[itter]->make_trump(upcard,itter==dealer,h+1,s)){
                     trump = s;
                     break;
                 }
+                
             }
             h++;
         }
