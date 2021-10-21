@@ -80,27 +80,6 @@ class Simple : public Player {
         }
     }
 
-    Card index_highest(array<Card, 5>, const Card &c, 
-        const string trump, const Card led) { // helper: w/ trump
-        assert(handsize < MAX_HAND_SIZE);
-        if(contains(c)) {return;}
-        if(!contains(c)) {
-            array<Card, MAX_HAND_SIZE> h;
-            for(int i=0; i < handsize; ++i) {
-                h[i] = hand[i];
-            }
-            int index = handsize;
-            while (index > 0 && Card_less(c,hand[index-1],led,trump)) {
-                hand[index] = hand[index-1];
-                --index;
-            }
-            hand[index] = c;
-            ++handsize;
-        }
-        return hand[4];
-    }
-
-
     virtual void add_card(const Card &c) {
         assert(handsize < MAX_HAND_SIZE);
         if(contains(c)) {return;}
