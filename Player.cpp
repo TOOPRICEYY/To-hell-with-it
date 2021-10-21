@@ -214,7 +214,6 @@ class Simple : public Player {
         for(int i=0; i < MAX_HAND_SIZE; ++i) {
             h[i] = hand[i];
         }
-        sort(h.begin(),h.end());
 
         cout << h[0] << " played by " << get_name() << endl;
         remove(h[0]);
