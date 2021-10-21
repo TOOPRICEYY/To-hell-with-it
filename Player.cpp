@@ -199,13 +199,13 @@ class Simple : public Player {
         if(contains(trump)) {
             Card c = hand[index_high_trump(trump)];
             remove(c);
-            cout << c << "played by " << get_name() << endl;
+            cout << c << " played by " << get_name() << endl;
             return c;
         }
         if(contains(led_card)) {
             Card c = hand[index_high_trump(led_card.get_suit())];
             remove(c);
-            cout << c << "played by " << get_name() << endl;
+            cout << c << " played by " << get_name() << endl;
             return c;
         }
         array<Card, 5> h; // then just return the lowest card
@@ -214,7 +214,7 @@ class Simple : public Player {
         }
         sort(h.begin(),h.end());
 
-        cout << h[0] << "played by " << get_name() << endl;
+        cout << h[0] << " played by " << get_name() << endl;
         return h[0]; 
     }
 
