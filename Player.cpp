@@ -231,7 +231,6 @@ class Simple : public Player {
     int index(Card a) const{ // index given card
         for(int i=0; i < handsize; ++i) {
             if(hand[i] == a) {
-                cout << "i: "<<i << endl;
                 return i;
             }
         }
@@ -419,7 +418,6 @@ class Human : public Player {
     int index(Card a) const{ // index given card
         for(int i=0; i < handsize; ++i) {
             if(hand[i] == a) {
-                cout << "i: "<<i << endl;
                 return i;
             }
         }
