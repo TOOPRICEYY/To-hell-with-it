@@ -211,8 +211,13 @@ class Simple : public Player {
         } */
 
         array<Card, 5> h; // then just return the lowest card
-        for(int i=0; i < MAX_HAND_SIZE; ++i) {
+        int h = handsize;
+        for(int i=0; i < handsize; ++i) {
             h[i] = hand[i];
+        }
+        empty_hand();
+        for(int i=0; i < h; ++i) {
+            add_card(h[i]);
         }
 
         cout << h[0] << " played by " << get_name() << endl;
@@ -230,6 +235,7 @@ class Simple : public Player {
     int index(Card a) const{ // index given card
         for(int i=0; i < handsize; ++i) {
             if(hand[i] == a) {
+                cout << "i: "<<i << endl;
                 return i;
             }
         }
@@ -417,6 +423,7 @@ class Human : public Player {
     int index(Card a) const{ // index given card
         for(int i=0; i < handsize; ++i) {
             if(hand[i] == a) {
+                cout << "i: "<<i << endl;
                 return i;
             }
         }
