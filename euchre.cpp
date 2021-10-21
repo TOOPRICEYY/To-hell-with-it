@@ -105,7 +105,6 @@ int main(int argc, char * argv[]){
     string trump = ""; 
     int dealer = 0;
     int hand = 0;
-    int order_up = -1;
 
     if(!f.is_open()) {
         string pack_filename = argv[1];
@@ -126,11 +125,13 @@ int main(int argc, char * argv[]){
     
     hand = 0;
 
-    order_up = makeTrump(Players, pack, hand, dealer, trump, upcard);
+    //int order_up = 
+    makeTrump(Players, pack, hand, dealer, trump, upcard);
     
     int leader = dealer+1;
     array<Card, 4> trick = {};
-    int trick_wins[5];
+    //int trick_wins[5];
+    //trick_wins[0] = 0;
     
     for(int i = 0; i < 5; ++i){
         trick = {};
@@ -156,7 +157,8 @@ int main(int argc, char * argv[]){
 
         cout << Players[(index_of_highest_value_card(trick,trump,trick[0])+leader)%4]->get_name()
             << " takes the trick" << endl << endl;
-        trick_wins[i] = leader = (index_of_highest_value_card(trick,trump,trick[0])+leader)%4;
+        leader = (index_of_highest_value_card(trick,trump,trick[0])+leader)%4;
+        //trick_wins[i] = leader;
     }
 
         dealer = (dealer+1)%4;
