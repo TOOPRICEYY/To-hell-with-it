@@ -227,10 +227,9 @@ class Simple : public Player {
             }
         }
 
-
         Card c = hand[0];
         cout << hand[0] << " played by " << get_name() << endl;
-        remove(hand[0]);
+        remove(c);
         return c; 
     }
 
