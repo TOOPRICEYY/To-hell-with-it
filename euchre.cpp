@@ -161,10 +161,8 @@ int main(int argc, char * argv[]){
 
     if(initial_garbage(argc, argv)==1) return 1;
     array<Player *, 4> Players;
-    Card upcard;
     string trump = ""; 
     int dealer = 0;
-    int hand = 0;
     ifstream f(argv[1]);
     Pack pack(f);
     f.close();
@@ -172,17 +170,16 @@ int main(int argc, char * argv[]){
     bool shuffle = s=="shuffle" ? true : false;
     int win_threshold =  atoi(argv[3]);
     
-    hand = 0;
+    int hand = 0;
     int scores[2] = {0,0};
-
+    createPlayers(Players, argv);
     do{
         pack.reset();
         if(shuffle) pack.shuffle();
-        createPlayers(Players, argv);
         deal(pack, Players, dealer);
         cout << "Hand " << hand << endl;
 
-        upcard = pack.deal_one();
+        Card upcard = pack.deal_one();
         int order_up = makeTrump(Players, dealer, trump, upcard);
         
         int leader = dealer+1;
@@ -199,6 +196,6 @@ int main(int argc, char * argv[]){
     if(scores[1]<win_threshold) of = 0;
     cout << Players[0+of]->get_name() << " and " <<
             Players[2+of]->get_name() << " win!" << endl;
-        for(int i = 0; i<4; i++) delete Players[i];
+       for(int i = 0; i<4; i++) delete Players[i];
         return 0;
 }
