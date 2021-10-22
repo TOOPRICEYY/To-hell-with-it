@@ -78,6 +78,7 @@ class Simple : public Player {
         assert(handsize < MAX_HAND_SIZE);
         if(contains(c)) {return;}
         if(!contains(c)) {
+
             int index = handsize;
             while (index > 0 && Card_less(c,hand[index-1],trump)) {
                 hand[index] = hand[index-1];
@@ -150,26 +151,29 @@ class Simple : public Player {
         return false;
     }
 
-    Card lowest_with_upcard(const string trump){ // helper
+
+    
+    virtual void add_and_discard(const Card &upcard) {
+        assert(handsize > 0);
         array<Card, 6> h;
         for(int i=0; i < handsize; ++i) { // sorts, but not based on trump
             h[i] = hand[i];
         }
-        int temp = handsize;
-        empty_hand();
-            for(int i=0; i < temp; ++i) {
-                add_card(h[i],trump, h, temp);
-            }
+        int index = handsize;
+        while (index > 0 && 
+            Card_less(upcard,h[index-1],upcard.get_suit())) {
+                h[index] = h[index-1];
+                --index;
         }
-
-        Card c = hand[0];
+            h[index] = upcard; // card has been added, +handsize
+        Card c = h[0];
+        if (upcard == c) {
+            return;
+        }
+        
         cout << hand[0] << " played by " << get_name() << endl;
-    }
-    
-    virtual void add_and_discard(const Card &upcard) {
-        assert(handsize > 0);
-
-        remove(c);
+        remove(c); // -handsize
+        add_card(upcard,upcard.get_suit());
     }
 
     virtual Card lead_card(const std::string &trump) {
@@ -249,21 +253,13 @@ class Simple : public Player {
         }
         Card led_card2 = led_card;
         if(led_card.is_left_bower(trump)){
-<<<<<<< HEAD
             Card led_card2 = Card(led_card.get_rank(),trump);
             //cout << "workedsadasd"<<endl;
-=======
-            led_card2 = Card(led_card.get_rank(),trump);
-      
->>>>>>> 1df813bc14e4ddf52dc9d19336cc2370f7a19342
         }
  
         if(contains(led_card2.get_suit())&& handsize>1) {
             Card c = hand[index_high_trump(led_card2.get_suit())];
-<<<<<<< HEAD
             //cout << "workedsadasd2"<<endl;
-=======
->>>>>>> 1df813bc14e4ddf52dc9d19336cc2370f7a19342
             if (left_bower != -1) {
                 hand[left_bower] = a;
             }
@@ -276,12 +272,6 @@ class Simple : public Player {
         if (left_bower != -1) {
             hand[left_bower] = a;
         }
-        /*if(contains(trump)) {
-            Card c = hand[index_high_trump(trump)];
-            remove(c);
-            cout << c << " played by " << get_name() << endl;
-            return c;
-        } */
         array<Card, 5> h;
         int hi = handsize;
         for(int i=0; i < handsize; ++i) {
