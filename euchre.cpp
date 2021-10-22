@@ -46,13 +46,14 @@ int makeTrump(array<Player *, 4> &Players, int dealer,
         for(int i = 0; i<4; i++){ // make trump
             int itter = (i+dealer+1)%4;
             string s;
-
             if(Players[itter]->make_trump(upcard,itter==dealer,h+1,s)){
                 trump = s;
+                cout << Players[itter]->get_name() << " orders up " << s << endl;
                 order_up = itter;
                 break;
+            }else{
+                cout << Players[itter]->get_name() << " passes" << endl;
             }
-            
         }
         h++;
     }
@@ -119,11 +120,13 @@ void run_trick(array<Player *, 4> &Players,
 
         
         trick[0] = Players[(leader)%4]->lead_card(trump);
+        cout << trick[0] << " led by " << Players[(leader)%4]->get_name() << endl;
+
 
         for(int p = 1; p < 4; ++p){
             
             trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
-            
+            cout << trick[p] << " played by " << Players[(leader+p)%4]->get_name() << endl;
             
             }
 
