@@ -163,31 +163,26 @@ ostream & operator<<(ostream &os, const Card &card){
   return os;
 }
 
+int dup(const Card &a, const Card &b,
+  const string &trump){
+  if(a.is_trump(trump) && !b.is_trump(trump)) {return 0;}
+  if(!a.is_trump(trump) && b.is_trump(trump)) {return 1;}
+  if(a.is_right_bower(trump)) {return 0;}
+  if(b.is_right_bower(trump)) {return 1;}
+  if(a.is_left_bower(trump)) {return 0;}
+  if(b.is_left_bower(trump)) {return 1;}
+  return -1;
+}
 bool Card_less(const Card &a, const Card &b, const string &trump){
   assert(trump == Card::SUIT_CLUBS || trump == Card::SUIT_DIAMONDS
   || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
 // first check trump & bower status for quick check
-  if(a.is_trump(trump) && !b.is_trump(trump)) {
-    return false;
-    }
-  if(!a.is_trump(trump) && b.is_trump(trump)) {
-    return true;
-    }
-  if(a.is_right_bower(trump)) {
-    return false;
-    }
-  if(b.is_right_bower(trump)) {
-    return true;
-    }
-  if(a.is_left_bower(trump)) {
-    return false;
-    }
-  if(b.is_left_bower(trump)) {
-    return true;
-    }
+   if(dup(a,b,trump)==1){return true;}
+  else if(dup(a,b,trump)==0){ return false;}
 // if both are trump or non-trump, then find out manually
   return a < b;
 }
+
 
 bool Card_less(const Card &a, const Card &b, const Card &led_card,
   const string &trump){
@@ -197,12 +192,9 @@ bool Card_less(const Card &a, const Card &b, const Card &led_card,
   
   // first check trump & bower status for quick check
   if(led == trump) {return Card_less(a,b,trump);}
-  if(a.is_trump(trump) && !b.is_trump(trump)) {return false;}
-  if(!a.is_trump(trump) && b.is_trump(trump)) {return true;}
-  if(a.is_right_bower(trump)) {return false;}
-  if(b.is_right_bower(trump)) {return true;}
-  if(a.is_left_bower(trump)) {return false;}
-  if(b.is_left_bower(trump)) {return true;}
+  if(dup(a,b,trump)==1){return true;}
+  else if(dup(a,b,trump)==0){ return false;}
+  
 
   // check led status for quick check, knowing led != trump
   // from this point, we know a & b aren't trumps
