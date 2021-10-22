@@ -227,9 +227,11 @@ class Simple : public Player {
             }
         }
 
+
+        Card c = hand[0];
         cout << hand[0] << " played by " << get_name() << endl;
         remove(hand[0]);
-        return hand[0]; 
+        return c; 
     }
 
   static const int MAX_HAND_SIZE = 5;
