@@ -88,9 +88,10 @@ class Simple : public Player {
             ++handsize;
         }
     }
-    virtual void add_card(const Card &c,const string trump, Card hand[], int handsize) { // helper: w/ trump
+    virtual void add_card(const Card &c,const string &trump, Card * hand, int &handsize) { // helper: w/ trump
         assert(handsize < MAX_HAND_SIZE+1);
             int index = handsize;
+
             while (index > 0 && Card_less(c,hand[index-1],trump)) {
                 hand[index] = hand[index-1];
                 --index;
@@ -163,18 +164,22 @@ class Simple : public Player {
         h[handsize] = upcard;
         
         int hi = handsize+1;
-        int temp = 1;
+        int temp = 0;
         empty_hand();
         for(int i=0; i < hi; ++i) {
             add_card(h[i],upcard.get_suit(),ht,temp);
         }
-        for(int i=0; i < hi; ++i) {
-            cout << "i: "<<i<<"Card: "<<h[i] << endl;
-        }
+
         for(int i=1; i < hi; ++i) {
             hand[i-1]=ht[i];
+            
         }
-        remove(hand[0]);
+        handsize = hi-1;
+        /*
+         for(int i=0; i < hi-1; ++i) {
+            cout << "i: "<<i<<" Card: "<<hand[i] << endl;
+        }
+        */
     }
 
     virtual Card lead_card(const std::string &trump) {
@@ -195,26 +200,26 @@ class Simple : public Player {
         for(int i=0; i < handsize; ++i) {
             if(hand[i].is_left_bower(trump)) {left_bower = i;}
         }
-        Card a;
-        if (left_bower != -1) {
-            a = hand[left_bower];
-            hand[left_bower] = Card(a.get_rank(),trump);
-        }
+        
 
         if(trump_count == handsize) {
             int index = index_high_trump(trump);
-            if (left_bower != -1) {
-            hand[left_bower] = a;
-            }
+            
             Card c = hand[index]; // store copy
             remove(c); // remove from hand
             cout << c << " led by " << get_name() << endl;
 
             return c; // return led card
         }
-
+      
+        Card a;
+        if (left_bower != -1) {
+            a = hand[left_bower];
+            hand[left_bower] = Card(a.get_rank(),trump);
+        }
         
         int index = index_high(trump);
+     
         if (left_bower != -1) {
             hand[left_bower] = a;
         }
@@ -248,21 +253,24 @@ class Simple : public Player {
             if(hand[i].is_left_bower(trump)) {left_bower = i;}
         }
         Card a;
-        if (left_bower != -1) {
+        if (left_bower != -1) { // if hand contains left bower treat as if trump
             a = hand[left_bower];
             hand[left_bower] = Card(a.get_rank(),trump);
         }
-        Card led_card2 = led_card;
+
+        Card led_card2 = led_card; //if lead is left bower then treat it as trump
         if(led_card.is_left_bower(trump)){
             led_card2 = Card(led_card.get_rank(),trump);
       
         }
  
         if(contains(led_card2.get_suit())&& handsize>1) {
-            Card c = hand[index_high_trump(led_card2.get_suit())];
+            int index = index_high_trump(led_card2.get_suit());
             if (left_bower != -1) {
                 hand[left_bower] = a;
             }
+            Card c = hand[index];
+            
             remove(c);
             cout << c << " played by " << get_name() << endl;
         
