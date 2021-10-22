@@ -169,20 +169,22 @@ do{
         trick = {};
         //cout << "test lead " << Players[(leader)%4]->get_name() << endl;
         
-        /*for(int c = 0; c < 5-i; ++c) {
+        for(int c = 0; c < 5-i; ++c) {
+                
                 cout << "player " << Players[(leader)%4]->get_name() << 
                 "'s hand: [" << c << "] " << Players[(leader)%4]->card(c) << endl;
-            } */
+                
+            }
         
         trick[0] = Players[(leader)%4]->lead_card(trump);
 
        for(int p = 1; p < 4; ++p){
             
             for(int c = 0; c < 5-i; ++c) {
-                
-                /*cout << "player " << Players[(leader+p)%4]->get_name() << 
-                "'s hand: [" << c << "] " << Players[(leader+p)%4]->card(c) << endl;*/
-                
+                /*
+                cout << "player " << Players[(leader+p)%4]->get_name() << 
+                "'s hand: [" << c << "] " << Players[(leader+p)%4]->card(c) << endl;
+                */
                 
             }
             trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
