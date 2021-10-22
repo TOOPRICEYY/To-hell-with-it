@@ -150,6 +150,7 @@ int main(int argc, char * argv[]){
                 cout << "player " << Players[(leader+p)%4]->get_name() << 
                 "'s hand: [" << c << "] " << Players[(leader+p)%4]->card(c) << endl;
                 */
+                
             }
             trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
             

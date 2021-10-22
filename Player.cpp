@@ -215,7 +215,7 @@ class Simple : public Player {
             return c;
         } */
         array<Card, 5> h;
-         int hi = handsize;
+        int hi = handsize;
         for(int i=0; i < handsize; ++i) {
                 h[i] = hand[i];
         }
@@ -227,9 +227,9 @@ class Simple : public Player {
             }
         }
 
-        cout << h[0] << " played by " << get_name() << endl;
-        remove(h[0]);
-        return h[0]; 
+        cout << hand[0] << " played by " << get_name() << endl;
+        remove(hand[0]);
+        return hand[0]; 
     }
 
   static const int MAX_HAND_SIZE = 5;
