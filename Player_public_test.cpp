@@ -105,9 +105,10 @@ TEST(test_simple_player_play_card) {
   bob->add_card(Card(Card::RANK_QUEEN, Card::SUIT_SPADES));
   bob->add_card(Card(Card::RANK_KING, Card::SUIT_SPADES));
   bob->add_card(Card(Card::RANK_ACE, Card::SUIT_SPADES));
-
+ 
   // Bob plays a card
   Card nine_diamonds(Card::RANK_NINE, Card::SUIT_DIAMONDS);
+  cout << "in there";
   Card card_played = bob->play_card(
     nine_diamonds,  // Nine of Diamonds is led
     "Hearts"        // Trump suit
