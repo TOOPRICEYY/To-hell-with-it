@@ -33,7 +33,8 @@ void createPlayers(array<Player *, 4> &Players, char * argv[]){
     }
 }
 
-int makeTrump(array<Player *, 4> &Players, Pack &pack, int dealer, string &trump, Card &upcard){
+int makeTrump(array<Player *, 4> &Players, Pack &pack, int dealer, 
+    string &trump, Card &upcard){
     trump = ""; 
     int order_up = -1;
     int h = 0;
@@ -61,6 +62,7 @@ int makeTrump(array<Player *, 4> &Players, Pack &pack, int dealer, string &trump
         }
         h++;
     }
+    cout << endl;
     if(h==1){ //if trump declared in first round
         Players[dealer]->add_and_discard(upcard);
     }
@@ -86,7 +88,8 @@ int index_of_highest_value_card(array<Card,4> &trick, string &trump, Card &lead)
     return index;
 }
 
-void determine_winners(array<Player *, 4> &Players, int Scores[],int order_up, int * scores){
+void determine_winners(array<Player *, 4> &Players, int Scores[],
+    int order_up, int * scores){
     int of = 1;
     if((Scores[0]+Scores[2])>(Scores[1]+Scores[3])) of = 0;
 
@@ -114,7 +117,8 @@ void determine_winners(array<Player *, 4> &Players, int Scores[],int order_up, i
         Players[3]->get_name() << " have " << scores[1]<<" points" << endl << endl;
 }
 
-void run_trick(array<Player *, 4> &Players, array<Card, 4> trick, int &leader, string &trump, int trick_wins[]){
+void run_trick(array<Player *, 4> &Players, array<Card, 4> trick, 
+    int &leader, string &trump, int trick_wins[]){
      for(int i = 0; i < 5; ++i){
         trick = {};
 

@@ -453,7 +453,7 @@ class Human : public Player {
             cout << get_name() << " passes" << endl;
             return false;
         }
-        cout << get_name() << " orders up " << order_up_suit << endl << endl;
+        cout << get_name() << " orders up " << order_up_suit << endl;
         return true;
     }
 
