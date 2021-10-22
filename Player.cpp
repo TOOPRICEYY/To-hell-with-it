@@ -21,9 +21,7 @@ class Simple : public Player {
         empty_hand();
     }
 
-    virtual Card card(int i) {
-        return hand[i];
-    }
+
 
     void empty_hand() {
         for (int i = 0; i < handsize; ++i) {
@@ -155,8 +153,6 @@ class Simple : public Player {
         return false;
     }
 
-
-    
     virtual void add_and_discard(const Card &upcard) {
         assert(handsize > 0);
         Card h[MAX_HAND_SIZE+1];
@@ -295,7 +291,20 @@ class Simple : public Player {
             cout << c << " played by " << get_name() << endl;
             return c;
         }
+<<<<<<< HEAD
         if (left_bower != -1) {hand[left_bower] = a;}
+=======
+
+        if (left_bower != -1) {
+            hand[left_bower] = a;
+        }
+        /*if(contains(trump)) {
+            Card c = hand[index_high_trump(trump)];
+            remove(c);
+            cout << c << " played by " << get_name() << endl;
+            return c;
+        } */
+>>>>>>> 382cbfe526fe9d515c66e8a721db080d86f0613f
         array<Card, 5> h;
         int hi = handsize;
         for(int i=0; i < handsize; ++i) {h[i] = hand[i];}
@@ -429,7 +438,7 @@ class Human : public Player {
             cout << get_name() << " passes" << endl;
             return false;
         }
-        cout << get_name() << " orders up " << order_up_suit << endl << endl;
+        cout << get_name() << " orders up " << order_up_suit << endl;
         return true;
     }
 
