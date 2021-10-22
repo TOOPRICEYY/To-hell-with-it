@@ -184,7 +184,6 @@ class Simple : public Player {
         || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
 
         // temporarily change left bower card to trump suit
-<<<<<<< HEAD
         int left_bower = -1;
         for(int i=0; i < handsize; ++i) {
             if(hand[i].is_left_bower(trump)) {left_bower = i;}
@@ -194,25 +193,15 @@ class Simple : public Player {
             a = hand[left_bower];
             hand[left_bower] = Card(a.get_rank(),trump);
         }
-=======
-            int left_bower = -1;
-            for(int i=0; i < handsize; ++i) {
-                if(hand[i].is_left_bower(trump)) {left_bower = i;}
-            }
-            Card a;
-            if (left_bower != -1) {
-                a = hand[left_bower]; 
-                hand[left_bower] =  Card(a.get_rank(),trump);
-            }
->>>>>>> 4879ab0dea71e55bb053274cbc2353f8ad60364e
 
-        if(contains(led_card.get_suit())) {
+        if(contains(led_card.get_suit())&& handsize>1) {
             Card c = hand[index_high_trump(led_card.get_suit())];
             remove(c);
-            cout << c << " played by " << get_name() << endl;
             if (left_bower != -1) {
                 hand[left_bower] = a;
             }
+            cout << c << " played by " << get_name() << endl;
+        
             return c;
         }
 
@@ -225,15 +214,17 @@ class Simple : public Player {
             cout << c << " played by " << get_name() << endl;
             return c;
         } */
-
-        array<Card, 5> h; // then just return the lowest card
-        int hi = handsize;
+        array<Card, 5> h;
+         int hi = handsize;
         for(int i=0; i < handsize; ++i) {
-            h[i] = hand[i];
+                h[i] = hand[i];
         }
-        empty_hand();
-        for(int i=0; i < hi; ++i) {
-            add_card(h[i],trump);
+        if(handsize>1){
+             // then just return the lowest card
+            empty_hand();
+            for(int i=0; i < hi; ++i) {
+                add_card(h[i],trump);
+            }
         }
 
         cout << h[0] << " played by " << get_name() << endl;
