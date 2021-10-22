@@ -88,6 +88,35 @@ int index_of_highest_value_card(array<Card,4> &trick, string &trump, Card &lead)
     return index;
 }
 
+void determine_winners(array<Player *, 4> &Players, int Scores[],int order_up, int * scores){
+    int of = 1;
+    if((Scores[0]+Scores[2])>(Scores[1]+Scores[3])) of = 0;
+
+        cout << Players[0+of]->get_name() << " and " <<
+        Players[2+of]->get_name() << " win the hand" << endl;
+        if(order_up%2 == of){
+            if(Scores[0+of]+Scores[2+of]==5){
+                cout << "march!" << endl;
+                scores[of]+=2;
+            }else{
+                 scores[of]+=1;
+            }
+        }else{
+            cout << "euchred!" << endl;
+            scores[of]+=2;
+        }
+        
+    
+
+
+    cout << Players[0]->get_name() << " and " <<
+        Players[2]->get_name() << " have " << scores[0]<<" points" << endl;
+
+    cout << Players[1]->get_name() << " and " <<
+        Players[3]->get_name() << " have " << scores[1]<<" points" << endl << endl;
+}
+
+
 int main(int argc, char * argv[]){
 
     ifstream f(argv[1]);
@@ -116,31 +145,34 @@ int main(int argc, char * argv[]){
     f.close();
     string s = argv[2];
     bool shuffle = s=="shuffle" ? true : false;
-    if(shuffle) pack.shuffle();
-    //int win_threshold =  atoi(argv[3]);
+    //if(shuffle) pack.shuffle();
+    int win_threshold =  atoi(argv[3]);
     
-    createPlayers(Players, argv);
+    
 
-    deal(pack, Players, dealer);
     
     hand = 0;
-
-    //int order_up = 
-    makeTrump(Players, pack, hand, dealer, trump, upcard);
+    int scores[2] = {0,0};
+do{
+    pack.reset();
+    if(shuffle) pack.shuffle();
+    createPlayers(Players, argv);
+    deal(pack, Players, dealer);
+    int order_up = makeTrump(Players, pack, hand, dealer, trump, upcard);
     
     int leader = dealer+1;
     array<Card, 4> trick = {};
-    //int trick_wins[5];
-    //trick_wins[0] = 0;
+    int trick_wins[4] = {0,0,0,0};
+    
     
     for(int i = 0; i < 5; ++i){
         trick = {};
         //cout << "test lead " << Players[(leader)%4]->get_name() << endl;
-        /*for(int c = 0; c < 5-i; ++c) {
+        for(int c = 0; c < 5-i; ++c) {
                 cout << "player " << Players[(leader)%4]->get_name() << 
                 "'s hand: [" << c << "] " << Players[(leader)%4]->card(c) << endl;
             }
-        */
+        
         trick[0] = Players[(leader)%4]->lead_card(trump);
 
         for(int p = 1; p < 4; ++p){
@@ -168,10 +200,13 @@ int main(int argc, char * argv[]){
         cout << Players[(index_of_highest_value_card(trick,trump,trick[0])+leader)%4]->get_name()
             << " takes the trick" << endl << endl;
         leader = (index_of_highest_value_card(trick,trump,trick[0])+leader)%4;
-        //trick_wins[i] = leader;
+        trick_wins[leader]++;
     }
+        determine_winners(Players,trick_wins,order_up,scores);
 
         dealer = (dealer+1)%4;
+        hand++;
+}while(scores[1]<win_threshold && scores[0]<win_threshold);
   
 
 

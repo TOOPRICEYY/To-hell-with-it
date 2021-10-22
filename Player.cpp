@@ -196,10 +196,10 @@ class Simple : public Player {
 
         if(contains(led_card.get_suit())&& handsize>1) {
             Card c = hand[index_high_trump(led_card.get_suit())];
-            remove(c);
             if (left_bower != -1) {
                 hand[left_bower] = a;
             }
+            remove(c);
             cout << c << " played by " << get_name() << endl;
         
             return c;
