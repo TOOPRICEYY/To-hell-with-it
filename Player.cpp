@@ -78,7 +78,6 @@ class Simple : public Player {
         assert(handsize < MAX_HAND_SIZE);
         if(contains(c)) {return;}
         if(!contains(c)) {
-
             int index = handsize;
             while (index > 0 && Card_less(c,hand[index-1],trump)) {
                 hand[index] = hand[index-1];
@@ -151,35 +150,26 @@ class Simple : public Player {
         return false;
     }
 
+    Card lowest_with_upcard(const string trump){ // helper
+        array<Card, 6> h;
+        for(int i=0; i < handsize; ++i) { // sorts, but not based on trump
+            h[i] = hand[i];
+        }
+        int temp = handsize;
+        empty_hand();
+            for(int i=0; i < temp; ++i) {
+                add_card(h[i],trump, h, temp);
+            }
+        }
+
+        Card c = hand[0];
+        cout << hand[0] << " played by " << get_name() << endl;
+    }
+    
     virtual void add_and_discard(const Card &upcard) {
         assert(handsize > 0);
-<<<<<<< HEAD
-        array<Card, MAX_HAND_SIZE> h;
-        for(int i=0; i < handsize; ++i) { // sorts, but not based on trump
-=======
-        Card h[MAX_HAND_SIZE+1];
-        Card ht[MAX_HAND_SIZE+1];
 
-        for(int i=0; i < handsize; ++i) {
->>>>>>> 1df813bc14e4ddf52dc9d19336cc2370f7a19342
-            h[i] = hand[i];
-           // cout << "i: "<<i<<"Card: "<<h[i] << endl;
-        }
-        h[handsize] = upcard;
-        
-        int hi = handsize+1;
-        int temp = 1;
-        empty_hand();
-        for(int i=0; i < hi; ++i) {
-            add_card(h[i],upcard.get_suit(),ht,temp);
-        }
-        for(int i=0; i < hi; ++i) {
-            cout << "i: "<<i<<"Card: "<<h[i] << endl;
-        }
-        for(int i=1; i < hi; ++i) {
-            hand[i-1]=ht[i];
-        }
-        remove(hand[0]);
+        remove(c);
     }
 
     virtual Card lead_card(const std::string &trump) {
