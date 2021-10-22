@@ -123,11 +123,9 @@ class Simple : public Player {
         if (round == 1) {
             if(trump_face(upcard) >= 2) {
                 order_up_suit = upcard.get_suit();
-                cout << get_name() << " orders up " << order_up_suit << endl;
                 return true;
             }
             else {
-                cout << get_name() << " passes" << endl;
                 return false;
             }
         }
@@ -135,17 +133,14 @@ class Simple : public Player {
             string same_color=Suit_next(upcard.get_suit());
             if(is_dealer) {
                 order_up_suit = same_color;
-                cout << get_name() << " orders up " << order_up_suit << endl;
                 return true;
             }
             else if (!is_dealer) {
                 if(trump_face(same_color) >= 1) {
                     order_up_suit = same_color;
-                    cout << get_name() << " orders up " << order_up_suit << endl;
                     return true;
                 }
                 else {
-                    cout << get_name() << " passes" << endl;
                     return false;
                     }
             }
@@ -229,7 +224,6 @@ class Simple : public Player {
             ;
             Card c = Highest_trump_or_bower(trump);
             remove(c); // remove from hand
-            cout << c << " led by " << get_name() << endl;
 
             return c; // return led card
         }
@@ -249,7 +243,6 @@ class Simple : public Player {
        
         remove(c);
 
-        cout << c << " led by " << get_name() << endl;
         return c;
     }
 
@@ -293,7 +286,7 @@ class Simple : public Player {
             Card c = hand[index];
             
             remove(c);
-            cout << c << " played by " << get_name() << endl;
+            
         
             return c;
         }
@@ -312,7 +305,6 @@ class Simple : public Player {
         }
 
         Card c = hand[0];
-        cout << hand[0] << " played by " << get_name() << endl;
         remove(c);
         return c; 
     }
@@ -435,11 +427,8 @@ class Human : public Player {
         ", please enter a suit, or \"pass\":" << endl;
         cin >> order_up_suit;
 
-        if (order_up_suit == "pass") { 
-            cout << get_name() << " passes" << endl;
-            return false;
-        }
-        cout << get_name() << " orders up " << order_up_suit << endl;
+        if (order_up_suit == "pass") {return false;}
+        
         return true;
     }
 
@@ -490,7 +479,6 @@ class Human : public Player {
     virtual Card lead_card(const std::string &trump) {
         assert(handsize > 0);
         Card c = gen_play_card(trump);
-        cout << c << " led by " << get_name() << endl;
         remove(c);
 
 
@@ -500,7 +488,6 @@ class Human : public Player {
     virtual Card play_card(const Card &led_card, const string &trump) {
         assert(handsize > 0);
           Card c = gen_play_card(trump);
-        cout << c << " played by " << get_name() << endl;
         remove(c);
 
         return c;
