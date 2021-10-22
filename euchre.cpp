@@ -33,12 +33,11 @@ void createPlayers(array<Player *, 4> &Players, char * argv[]){
     }
 }
 
-int makeTrump(array<Player *, 4> &Players, Pack &pack, int hand, int dealer, string &trump, Card &upcard){
+int makeTrump(array<Player *, 4> &Players, Pack &pack, int dealer, string &trump, Card &upcard){
     trump = ""; 
     int order_up = -1;
     int h = 0;
     upcard = pack.deal_one();
-    cout << "Hand " << hand << endl;
     cout << *Players[dealer] << " deals" << endl;
     cout << upcard << " turned up" << endl;
 
@@ -94,7 +93,7 @@ void determine_winners(array<Player *, 4> &Players, int Scores[],int order_up, i
 
         cout << Players[0+of]->get_name() << " and " <<
         Players[2+of]->get_name() << " win the hand" << endl;
-        if(order_up%2 == of){
+        if(order_up%2 == of && order_up!=-1){
             if(Scores[0+of]+Scores[2+of]==5){
                 cout << "march!" << endl;
                 scores[of]+=2;
@@ -158,7 +157,8 @@ do{
     if(shuffle) pack.shuffle();
     createPlayers(Players, argv);
     deal(pack, Players, dealer);
-    int order_up = makeTrump(Players, pack, hand, dealer, trump, upcard);
+    cout << "Hand " << hand << endl;
+    int order_up = makeTrump(Players, pack, dealer, trump, upcard);
     
     int leader = dealer+1;
     array<Card, 4> trick = {};
