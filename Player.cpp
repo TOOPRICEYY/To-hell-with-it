@@ -160,7 +160,7 @@ class Simple : public Player {
         
         int trump_count = 0; // amount of trumps in hand
         for(int i = 0; i < handsize; ++i) { // count how many trump cards
-            if (hand[i].is_trump(trump)) {
+            if (hand[i].is_trump(trump)&&!hand[i].is_left_bower(trump)) {
                 ++trump_count;
             }
         }
@@ -168,6 +168,7 @@ class Simple : public Player {
             Card c = hand[index_high_trump(trump)]; // store copy
             remove(c); // remove from hand
             cout << c << " led by " << get_name() << endl;
+
             return c; // return led card
         }
         Card c = hand[index_high(trump)]; // whats the highest non trump
@@ -226,9 +227,10 @@ class Simple : public Player {
                 add_card(h[i],trump);
             }
         }
+        //sort(h.begin(),h.end());
 
-        Card c = hand[0];
-        cout << hand[0] << " played by " << get_name() << endl;
+        Card c = h[0];
+        cout << h[0] << " played by " << get_name() << endl;
         remove(c);
         return c; 
     }
