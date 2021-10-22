@@ -178,6 +178,13 @@ class Simple : public Player {
         return c;
     }
 
+    int contains_left_bower(const Card &led_card,const string &trump){
+        int left_bower = -1;
+        for(int i=0; i < handsize; ++i) {
+            if(hand[i].is_left_bower(trump)) {left_bower = i;}
+        }
+        return left_bower;
+    }
 
     virtual Card play_card(const Card &led_card, const string &trump) {
         assert(handsize > 0);
@@ -194,9 +201,15 @@ class Simple : public Player {
             a = hand[left_bower];
             hand[left_bower] = Card(a.get_rank(),trump);
         }
+        Card led_card2 = led_card;
+        if(led_card.is_left_bower(trump)){
+            Card led_card2 = Card(led_card.get_rank(),trump);
+            cout << "workedsadasd"<<endl;
+        }
 
-        if(contains(led_card.get_suit())&& handsize>1) {
-            Card c = hand[index_high_trump(led_card.get_suit())];
+        if(contains(led_card2.get_suit()) && handsize>1) {
+            Card c = hand[index_high_trump(led_card2.get_suit())];
+            cout << "workedsadasd2"<<endl;
             if (left_bower != -1) {
                 hand[left_bower] = a;
             }
@@ -229,8 +242,8 @@ class Simple : public Player {
         }
         //sort(h.begin(),h.end());
 
-        Card c = h[0];
-        cout << h[0] << " played by " << get_name() << endl;
+        Card c = hand[0];
+        cout << hand[0] << " played by " << get_name() << endl;
         remove(c);
         return c; 
     }
