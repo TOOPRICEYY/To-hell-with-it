@@ -277,52 +277,32 @@ class Simple : public Player {
         assert(trump == Card::SUIT_CLUBS || trump == Card::SUIT_DIAMONDS
         || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
 
-        // temporarily change left bower card to trump suit
         int left_bower = -1;
         for(int i=0; i < handsize; ++i) {
-            if(hand[i].is_left_bower(trump)) {left_bower = i;}
-        }
+            if(hand[i].is_left_bower(trump)) {left_bower = i;}}
         Card a;
-        if (left_bower != -1) { // if hand contains left bower treat as if trump
-            a = hand[left_bower];
+        if (left_bower != -1) {a = hand[left_bower];
             hand[left_bower] = Card(a.get_rank(),trump);
         }
-
-        Card led_card2 = led_card; //if lead is left bower then treat it as trump
+        Card led_card2 = led_card;
         if(led_card.is_left_bower(trump)){
             led_card2 = Card(led_card.get_rank(),trump);
-      
         }
  
         if(contains(led_card2.get_suit())&& handsize>1) {
             int index = index_high_trump(led_card2.get_suit());
-            if (left_bower != -1) {
-                hand[left_bower] = a;
-            }
+            if (left_bower != -1) {hand[left_bower] = a;}
             Card c = hand[index];
-            
             remove(c);
             cout << c << " played by " << get_name() << endl;
-        
             return c;
         }
-
-        if (left_bower != -1) {
-            hand[left_bower] = a;
-        }
+        if (left_bower != -1) {hand[left_bower] = a;}
         array<Card, 5> h;
         int hi = handsize;
-        for(int i=0; i < handsize; ++i) {
-                h[i] = hand[i];
-        }
-        if(handsize>1){
-             // then just return the lowest card
-            empty_hand();
-            for(int i=0; i < hi; ++i) {
-                add_card(h[i],trump);
-            }
-        }
-
+        for(int i=0; i < handsize; ++i) {h[i] = hand[i];}
+        if(handsize>1){empty_hand();
+            for(int i=0; i < hi; ++i) {add_card(h[i],trump);}}
         Card c = hand[0];
         cout << hand[0] << " played by " << get_name() << endl;
         remove(c);
