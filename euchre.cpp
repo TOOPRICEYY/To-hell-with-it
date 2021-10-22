@@ -118,6 +118,10 @@ void determine_winners(array<Player *, 4> &Players, int Scores[],int order_up, i
 
 int main(int argc, char * argv[]){
 
+    for(int i = 0; i<argc; ++i){
+        cout<<argv[i]<<" ";
+    } 
+    cout << endl;
     ifstream f(argv[1]);
     if(argc!=12){
         cout << "please enter 12 arguments";
