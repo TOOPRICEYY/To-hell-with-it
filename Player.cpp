@@ -161,7 +161,6 @@ class Simple : public Player {
 
         for(int i=0; i < handsize; ++i) {
             h[i] = hand[i];
-           // cout << "i: "<<i<<"Card: "<<h[i] << endl;
         }
         h[handsize] = upcard;
         
@@ -177,11 +176,6 @@ class Simple : public Player {
             
         }
         handsize = hi-1;
-        /*
-         for(int i=0; i < hi-1; ++i) {
-            cout << "i: "<<i<<" Card: "<<hand[i] << endl;
-        }
-        */
     }
 
     Card Highest_trump_or_bower(const std::string &trump){

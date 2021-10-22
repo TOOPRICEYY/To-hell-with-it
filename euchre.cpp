@@ -13,7 +13,7 @@
 using namespace std;
 
 
-void deal(Pack &pack, array<Player *, 4> Players, int dealer){
+void deal(Pack &pack, array<Player *, 4> &Players, int dealer){
     int itter;
           for(int c = 0; c<2; c++){
             for(int i = 0; i<4; i++){
@@ -33,12 +33,11 @@ void createPlayers(array<Player *, 4> &Players, char * argv[]){
     }
 }
 
-int makeTrump(array<Player *, 4> &Players, Pack &pack, int dealer, 
+int makeTrump(array<Player *, 4> &Players, int dealer, 
     string &trump, Card &upcard){
     trump = ""; 
     int order_up = -1;
     int h = 0;
-    upcard = pack.deal_one();
     cout << *Players[dealer] << " deals" << endl;
     cout << upcard << " turned up" << endl;
 
@@ -112,10 +111,11 @@ void determine_winners(array<Player *, 4> &Players, int Scores[],
         Players[3]->get_name() << " have " << scores[1]<<" points" << endl << endl;
 }
 
-void run_trick(array<Player *, 4> &Players, array<Card, 4> trick, 
+void run_trick(array<Player *, 4> &Players, 
     int &leader, string &trump, int trick_wins[]){
+     
      for(int i = 0; i < 5; ++i){
-        trick = {};
+        array<Card, 4> trick = {};
 
         
         trick[0] = Players[(leader)%4]->lead_card(trump);
@@ -134,10 +134,8 @@ void run_trick(array<Player *, 4> &Players, array<Card, 4> trick,
         trick_wins[leader]++;
     }
 }
-
-int main(int argc, char * argv[]){
-
-    for(int i = 0; i<argc; ++i){
+int initial_garbage(int argc, char * argv[]){
+     for(int i = 0; i<argc; ++i){
         cout<<argv[i]<<" ";
     } 
     cout << endl;
@@ -150,19 +148,24 @@ int main(int argc, char * argv[]){
         cout << "please enter score between 1 and 100";
         return 1;
     }
-
-    array<Player *, 4> Players;
-    Card upcard;
-    string trump = ""; 
-    int dealer = 0;
-    int hand = 0;
-
     if(!f.is_open()) {
         string pack_filename = argv[1];
         cout << "Error opening " << pack_filename << endl;
         return 1; // return nonzero number
     }
+    f.close();
+    return 0;
+}
 
+int main(int argc, char * argv[]){
+
+    if(initial_garbage(argc, argv)==1) return 1;
+    array<Player *, 4> Players;
+    Card upcard;
+    string trump = ""; 
+    int dealer = 0;
+    int hand = 0;
+    ifstream f(argv[1]);
     Pack pack(f);
     f.close();
     string s = argv[2];
@@ -178,13 +181,14 @@ int main(int argc, char * argv[]){
         createPlayers(Players, argv);
         deal(pack, Players, dealer);
         cout << "Hand " << hand << endl;
-        int order_up = makeTrump(Players, pack, dealer, trump, upcard);
+
+        upcard = pack.deal_one();
+        int order_up = makeTrump(Players, dealer, trump, upcard);
         
         int leader = dealer+1;
-        array<Card, 4> trick = {};
         int trick_wins[4] = {0,0,0,0};
 
-        run_trick(Players, trick, leader,trump,trick_wins);
+        run_trick(Players, leader,trump,trick_wins);
         determine_winners(Players,trick_wins,order_up,scores);
 
         dealer = (dealer+1)%4;
@@ -196,6 +200,5 @@ int main(int argc, char * argv[]){
     cout << Players[0+of]->get_name() << " and " <<
             Players[2+of]->get_name() << " win!" << endl;
         for(int i = 0; i<4; i++) delete Players[i];
-        
         return 0;
 }
