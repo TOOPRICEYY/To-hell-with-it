@@ -188,9 +188,6 @@ class Simple : public Player {
         assert(handsize > 0);
         assert(trump == Card::SUIT_CLUBS || trump == Card::SUIT_DIAMONDS
         || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
-        
-        
-       
 
         int trump_count = 0; // amount of trumps in hand
         for(int i = 0; i < handsize; ++i) { // count how many trump cards
@@ -202,7 +199,6 @@ class Simple : public Player {
         for(int i=0; i < handsize; ++i) {
             if(hand[i].is_left_bower(trump)) {left_bower = i;}
         }
-        
 
         if(trump_count == handsize) {
             int index = index_high_trump(trump);
