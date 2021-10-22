@@ -114,6 +114,27 @@ void determine_winners(array<Player *, 4> &Players, int Scores[],int order_up, i
         Players[3]->get_name() << " have " << scores[1]<<" points" << endl << endl;
 }
 
+void run_trick(array<Player *, 4> &Players, array<Card, 4> trick, int &leader, string &trump, int trick_wins[]){
+     for(int i = 0; i < 5; ++i){
+        trick = {};
+
+        
+        trick[0] = Players[(leader)%4]->lead_card(trump);
+
+        for(int p = 1; p < 4; ++p){
+            
+            trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
+            
+            
+            }
+
+        cout << 
+        Players[(index_of_highest_value_card(trick,trump,trick[0])+leader)%4]->get_name()
+        << " takes the trick" << endl << endl;
+        leader = (index_of_highest_value_card(trick,trump,trick[0])+leader)%4;
+        trick_wins[leader]++;
+    }
+}
 
 int main(int argc, char * argv[]){
 
@@ -147,84 +168,35 @@ int main(int argc, char * argv[]){
     f.close();
     string s = argv[2];
     bool shuffle = s=="shuffle" ? true : false;
-    //if(shuffle) pack.shuffle();
     int win_threshold =  atoi(argv[3]);
-    
-    
-
     
     hand = 0;
     int scores[2] = {0,0};
-do{
-    pack.reset();
-    if(shuffle) pack.shuffle();
-    createPlayers(Players, argv);
-    deal(pack, Players, dealer);
-    cout << "Hand " << hand << endl;
-    int order_up = makeTrump(Players, pack, dealer, trump, upcard);
-    
-    int leader = dealer+1;
-    array<Card, 4> trick = {};
-    int trick_wins[4] = {0,0,0,0};
-    
-    
-    for(int i = 0; i < 5; ++i){
-        trick = {};
-        //cout << "test lead " << Players[(leader)%4]->get_name() << endl;
-        
-        for(int c = 0; c < 5-i; ++c) {
-                /*
-                cout << "player " << Players[(leader)%4]->get_name() << 
-                "'s hand: [" << c << "] " << Players[(leader)%4]->card(c) << endl;
-                */
-            }
-        
-        trick[0] = Players[(leader)%4]->lead_card(trump);
 
-        for(int p = 1; p < 4; ++p){
-            
-            for(int c = 0; c < 5-i; ++c) {
-                /*
-                cout << "player " << Players[(leader+p)%4]->get_name() << 
-                "'s hand: [" << c << "] " << Players[(leader+p)%4]->card(c) << endl;
-                */
-                
-            }
-            trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
-            
-            
-            
-            //cout << "test play " << (leader+p)%4 << endl;
-        }
+    do{
+        pack.reset();
+        if(shuffle) pack.shuffle();
+        createPlayers(Players, argv);
+        deal(pack, Players, dealer);
+        cout << "Hand " << hand << endl;
+        int order_up = makeTrump(Players, pack, dealer, trump, upcard);
         
-       // for(int v = 0; v < 4; ++v) {
-        //cout << "hand: [" << v << "] " << trick[v] << endl;
+        int leader = dealer+1;
+        array<Card, 4> trick = {};
+        int trick_wins[4] = {0,0,0,0};
 
-      //  }
-        //cout <<"best index: " << index_of_highest_value_card(trick,trump,trick[0]);
-
-        cout << Players[(index_of_highest_value_card(trick,trump,trick[0])+leader)%4]->get_name()
-            << " takes the trick" << endl << endl;
-        leader = (index_of_highest_value_card(trick,trump,trick[0])+leader)%4;
-        trick_wins[leader]++;
-    }
+        run_trick(Players, trick, leader,trump,trick_wins);
         determine_winners(Players,trick_wins,order_up,scores);
 
         dealer = (dealer+1)%4;
         hand++;
-}while(scores[1]<win_threshold && scores[0]<win_threshold);
+    }while(scores[1]<win_threshold && scores[0]<win_threshold);
 
-int of = 1;
-if(scores[1]<win_threshold) of = 0;
-cout << Players[0+of]->get_name() << " and " <<
-        Players[2+of]->get_name() << " win!" << endl;
-  
-
-
-
-
-
-    for(int i = 0; i<4; i++) delete Players[i];
-    
-    return 0;
+    int of = 1;
+    if(scores[1]<win_threshold) of = 0;
+    cout << Players[0+of]->get_name() << " and " <<
+            Players[2+of]->get_name() << " win!" << endl;
+        for(int i = 0; i<4; i++) delete Players[i];
+        
+        return 0;
 }
