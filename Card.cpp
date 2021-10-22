@@ -177,6 +177,8 @@ bool Card_less(const Card &a, const Card &b, const string &trump){
   return a < b;
 }
 
+// helper
+
 bool Card_less(const Card &a, const Card &b, const Card &led_card,
   const string &trump){
   assert(trump == Card::SUIT_CLUBS || trump == Card::SUIT_DIAMONDS
