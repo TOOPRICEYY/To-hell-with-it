@@ -405,7 +405,8 @@ class Human : public Player {
         return index(a) != -1;
     }
 
-    void remove(Card a) { // helper
+
+     void remove(Card a) { // helper
         if(!contains(a)) {return;}
         for (int i = index(a); i < handsize-1; ++i) {
             hand[i] = hand[i+1];
@@ -499,8 +500,6 @@ class Human : public Player {
         int input;
         cin >> input;
 
-        
-
         return h[input];
     }
 
@@ -508,6 +507,7 @@ class Human : public Player {
         assert(handsize > 0);
         Card c = gen_play_card(trump);
         cout << c << " led by " << get_name() << endl;
+        remove(c);
 
         return c;
     }
@@ -516,6 +516,7 @@ class Human : public Player {
         assert(handsize > 0);
           Card c = gen_play_card(trump);
         cout << c << " played by " << get_name() << endl;
+        remove(c);
 
         return c;
     }
