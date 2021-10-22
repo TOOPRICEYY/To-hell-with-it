@@ -93,3 +93,35 @@ TEST(test_player_play) {
   delete alice;
 }
 
+TEST(test_player_lead_all_trump) { // all trumps in hand
+    Player * alice = Player_factory("Alice","Simple");
+
+  alice->add_card(Card(Card::RANK_NINE, Card::SUIT_DIAMONDS));
+  alice->add_card(Card(Card::RANK_TEN, Card::SUIT_DIAMONDS));
+  alice->add_card(Card(Card::RANK_QUEEN, Card::SUIT_DIAMONDS));
+  alice->add_card(Card(Card::RANK_JACK, Card::SUIT_DIAMONDS));
+  alice->add_card(Card(Card::RANK_JACK, Card::SUIT_HEARTS));
+  string trump = "Diamonds";
+  Card played = alice->lead_card(trump);
+  ASSERT_EQUAL(played, Card(Card::RANK_JACK, Card::SUIT_DIAMONDS));
+  played = alice->lead_card(trump);
+  ASSERT_EQUAL(played, Card(Card::RANK_JACK, Card::SUIT_HEARTS));
+  played = alice->lead_card(trump);
+  ASSERT_EQUAL(played, Card(Card::RANK_QUEEN, Card::SUIT_DIAMONDS));
+  delete alice;
+}
+
+TEST(test_player_lead_edge) { // l and r bower, chooses next highest
+    Player * alice = Player_factory("Alice","Simple");
+
+  alice->add_card(Card(Card::RANK_QUEEN, Card::SUIT_CLUBS));
+  alice->add_card(Card(Card::RANK_TEN, Card::SUIT_SPADES));
+  alice->add_card(Card(Card::RANK_KING, Card::SUIT_CLUBS));
+  alice->add_card(Card(Card::RANK_JACK, Card::SUIT_DIAMONDS));
+  alice->add_card(Card(Card::RANK_JACK, Card::SUIT_HEARTS));
+  string trump = "Diamonds";
+  Card played = alice->lead_card(trump);
+  ASSERT_EQUAL(played, Card(Card::RANK_KING, Card::SUIT_CLUBS));
+  delete alice;
+}
+
