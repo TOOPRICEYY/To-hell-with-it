@@ -84,8 +84,11 @@ class Simple : public Player {
                 hand[index] = hand[index-1];
                 --index;
             }
+            
             hand[index] = c;
+
             ++handsize;
+
         }
     }
     virtual void add_card(const Card &c,const string &trump, Card * hand, int &handsize) { // helper: w/ trump
@@ -182,12 +185,40 @@ class Simple : public Player {
         */
     }
 
+    Card Highest_trump_or_bower(const std::string &trump){
+        Card h[MAX_HAND_SIZE];
+         for(int i=0; i < handsize; ++i) {
+            h[i] = hand[i];
+        }
+        int hi = handsize;
+        empty_hand();
+        handsize = 0;
+        for(int i=0; i < hi; ++i) {
+            add_card(h[i],trump);
+
+        }
+        handsize = hi;
+        
+
+        return hand[hi-1];
+    }
+
     virtual Card lead_card(const std::string &trump) {
         assert(handsize > 0);
         assert(trump == Card::SUIT_CLUBS || trump == Card::SUIT_DIAMONDS
         || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
         
+        int left_bower = -1;
+        for(int i=0; i < handsize; ++i) {
+            if(hand[i].is_left_bower(trump)) {left_bower = i;}
+        }
         
+        Card a;
+        bool contains_trump = contains(trump);
+        if (left_bower != -1) {
+            a = hand[left_bower];
+            hand[left_bower] = Card(a.get_rank(),trump);
+        }
        
 
         int trump_count = 0; // amount of trumps in hand
@@ -196,33 +227,30 @@ class Simple : public Player {
                 ++trump_count;
             }
         }
-        int left_bower = -1;
-        for(int i=0; i < handsize; ++i) {
-            if(hand[i].is_left_bower(trump)) {left_bower = i;}
-        }
-        
-
+      
         if(trump_count == handsize) {
-            int index = index_high_trump(trump);
-            
-            Card c = hand[index]; // store copy
+            if (left_bower != -1) {
+            hand[left_bower] = a;
+            }
+            //cout << "all trumps " << endl;
+            ;
+            Card c = Highest_trump_or_bower(trump);
             remove(c); // remove from hand
             cout << c << " led by " << get_name() << endl;
 
             return c; // return led card
         }
       
-        Card a;
-        if (left_bower != -1) {
-            a = hand[left_bower];
-            hand[left_bower] = Card(a.get_rank(),trump);
+        if (left_bower != -1 && !contains_trump) {
+            hand[left_bower] = a;
         }
         
         int index = index_high(trump);
-     
-        if (left_bower != -1) {
+
+        if (left_bower != -1 && contains_trump) {
             hand[left_bower] = a;
         }
+    
 
         Card c = hand[index]; // whats the highest non trump
        
