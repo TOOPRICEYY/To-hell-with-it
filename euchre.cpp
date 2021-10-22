@@ -135,7 +135,7 @@ int main(int argc, char * argv[]){
     
     for(int i = 0; i < 5; ++i){
         trick = {};
-        cout << "test lead " << Players[(leader)%4]->get_name() << endl;
+        //cout << "test lead " << Players[(leader)%4]->get_name() << endl;
         /*for(int c = 0; c < 5-i; ++c) {
                 cout << "player " << Players[(leader)%4]->get_name() << 
                 "'s hand: [" << c << "] " << Players[(leader)%4]->card(c) << endl;
@@ -146,8 +146,10 @@ int main(int argc, char * argv[]){
         for(int p = 1; p < 4; ++p){
             
             for(int c = 0; c < 5-i; ++c) {
+                /*
                 cout << "player " << Players[(leader+p)%4]->get_name() << 
                 "'s hand: [" << c << "] " << Players[(leader+p)%4]->card(c) << endl;
+                */
             }
             trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
             
