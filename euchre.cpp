@@ -170,10 +170,10 @@ do{
         //cout << "test lead " << Players[(leader)%4]->get_name() << endl;
         
         for(int c = 0; c < 5-i; ++c) {
-                
-                //cout << "player " << Players[(leader)%4]->get_name() << 
-                //"'s hand: [" << c << "] " << Players[(leader)%4]->card(c) << endl;
-                
+                /*
+                cout << "player " << Players[(leader)%4]->get_name() << 
+                "'s hand: [" << c << "] " << Players[(leader)%4]->card(c) << endl;
+                */
             }
         
         trick[0] = Players[(leader)%4]->lead_card(trump);
@@ -210,6 +210,11 @@ do{
         dealer = (dealer+1)%4;
         hand++;
 }while(scores[1]<win_threshold && scores[0]<win_threshold);
+
+int of = 1;
+if(scores[1]<win_threshold) of = 0;
+cout << Players[0+of]->get_name() << " and " <<
+        Players[2+of]->get_name() << " win!" << endl;
   
 
 
