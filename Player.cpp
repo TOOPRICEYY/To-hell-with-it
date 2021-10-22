@@ -21,9 +21,7 @@ class Simple : public Player {
         empty_hand();
     }
 
-    virtual Card card(int i) {
-        return hand[i];
-    }
+
 
     void empty_hand() {
         for (int i = 0; i < handsize; ++i) {
