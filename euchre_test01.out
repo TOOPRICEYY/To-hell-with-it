@@ -14,21 +14,18 @@ player Gabriel's hand: [1] Jack of Diamonds
 player Gabriel's hand: [2] Queen of Hearts
 player Gabriel's hand: [3] King of Spades
 player Gabriel's hand: [4] Ace of Clubs
-workedsadasd2
 Ace of Clubs played by Gabriel
 player Herb's hand: [0] Nine of Diamonds
 player Herb's hand: [1] Ten of Spades
 player Herb's hand: [2] Ten of Clubs
 player Herb's hand: [3] Queen of Diamonds
 player Herb's hand: [4] King of Hearts
-workedsadasd2
 Ten of Clubs played by Herb
 player Edsger's hand: [0] Jack of Spades
 player Edsger's hand: [1] Jack of Clubs
 player Edsger's hand: [2] King of Diamonds
 player Edsger's hand: [3] Ace of Spades
 player Edsger's hand: [4] Nine of Hearts
-workedsadasd2
 Jack of Clubs played by Edsger
 Gabriel takes the trick
 
@@ -41,19 +38,16 @@ player Herb's hand: [0] Nine of Diamonds
 player Herb's hand: [1] Ten of Spades
 player Herb's hand: [2] Queen of Diamonds
 player Herb's hand: [3] King of Hearts
-workedsadasd2
 Ten of Spades played by Herb
 player Edsger's hand: [0] Jack of Spades
 player Edsger's hand: [1] King of Diamonds
 player Edsger's hand: [2] Ace of Spades
 player Edsger's hand: [3] Nine of Hearts
-workedsadasd2
 Ace of Spades played by Edsger
 player Fran's hand: [0] Nine of Spades
 player Fran's hand: [1] Jack of Hearts
 player Fran's hand: [2] Queen of Spades
 player Fran's hand: [3] Ace of Hearts
-workedsadasd2
 Queen of Spades played by Fran
 Edsger takes the trick
 
@@ -72,7 +66,6 @@ Nine of Clubs played by Gabriel
 player Herb's hand: [0] Nine of Diamonds
 player Herb's hand: [1] Queen of Diamonds
 player Herb's hand: [2] King of Hearts
-workedsadasd2
 Queen of Diamonds played by Herb
 Edsger takes the trick
 
@@ -129,14 +122,12 @@ player Edsger's hand: [1] Jack of Hearts
 player Edsger's hand: [2] King of Diamonds
 player Edsger's hand: [3] Ace of Hearts
 player Edsger's hand: [4] Ace of Diamonds
-workedsadasd2
 Nine of Clubs played by Edsger
 player Fran's hand: [0] Ten of Spades
 player Fran's hand: [1] Jack of Clubs
 player Fran's hand: [2] Queen of Clubs
 player Fran's hand: [3] King of Spades
 player Fran's hand: [4] Nine of Diamonds
-workedsadasd2
 Queen of Clubs played by Fran
 Gabriel takes the trick
 
@@ -159,7 +150,6 @@ player Fran's hand: [0] Ten of Spades
 player Fran's hand: [1] Jack of Clubs
 player Fran's hand: [2] King of Spades
 player Fran's hand: [3] Nine of Diamonds
-workedsadasd2
 Jack of Clubs played by Fran
 Gabriel takes the trick
 
@@ -170,7 +160,6 @@ Queen of Spades led by Gabriel
 player Herb's hand: [0] Ace of Spades
 player Herb's hand: [1] Ten of Diamonds
 player Herb's hand: [2] Jack of Diamonds
-workedsadasd2
 Ace of Spades played by Herb
 player Edsger's hand: [0] King of Diamonds
 player Edsger's hand: [1] Ace of Diamonds
@@ -179,36 +168,32 @@ King of Diamonds played by Edsger
 player Fran's hand: [0] Ten of Spades
 player Fran's hand: [1] King of Spades
 player Fran's hand: [2] Nine of Diamonds
-workedsadasd2
 King of Spades played by Fran
 Edsger takes the trick
 
 player Edsger's hand: [0] Ace of Diamonds
 player Edsger's hand: [1] Jack of Hearts
-Jack of Hearts led by Edsger
+Ace of Diamonds led by Edsger
 player Fran's hand: [0] Ten of Spades
 player Fran's hand: [1] Nine of Diamonds
-workedsadasd
-Ten of Spades played by Fran
+Nine of Diamonds played by Fran
 player Gabriel's hand: [0] Ten of Clubs
 player Gabriel's hand: [1] Jack of Spades
-workedsadasd
 Ten of Clubs played by Gabriel
 player Herb's hand: [0] Ten of Diamonds
 player Herb's hand: [1] Jack of Diamonds
-workedsadasd
-Ten of Diamonds played by Herb
-Edsger takes the trick
-
-player Edsger's hand: [0] Ace of Diamonds
-Ace of Diamonds led by Edsger
-player Fran's hand: [0] Nine of Diamonds
-Nine of Diamonds played by Fran
-player Gabriel's hand: [0] Jack of Spades
-Jack of Spades played by Gabriel
-player Herb's hand: [0] Jack of Diamonds
 Jack of Diamonds played by Herb
 Herb takes the trick
+
+player Herb's hand: [0] Ten of Diamonds
+Ten of Diamonds led by Herb
+player Edsger's hand: [0] Jack of Hearts
+Jack of Hearts played by Edsger
+player Fran's hand: [0] Ten of Spades
+Ten of Spades played by Fran
+player Gabriel's hand: [0] Jack of Spades
+Jack of Spades played by Gabriel
+Edsger takes the trick
 
 Edsger and Gabriel win the hand
 Edsger and Gabriel have 3 points
@@ -233,21 +218,18 @@ player Edsger's hand: [1] Nine of Diamonds
 player Edsger's hand: [2] Ten of Spades
 player Edsger's hand: [3] Ten of Diamonds
 player Edsger's hand: [4] Jack of Clubs
-workedsadasd2
 Jack of Clubs played by Edsger
 player Fran's hand: [0] Ten of Hearts
 player Fran's hand: [1] Jack of Spades
 player Fran's hand: [2] Jack of Diamonds
 player Fran's hand: [3] Queen of Spades
 player Fran's hand: [4] Queen of Clubs
-workedsadasd2
 Queen of Clubs played by Fran
 player Gabriel's hand: [0] Queen of Hearts
 player Gabriel's hand: [1] Queen of Diamonds
 player Gabriel's hand: [2] King of Spades
 player Gabriel's hand: [3] King of Clubs
 player Gabriel's hand: [4] King of Diamonds
-workedsadasd2
 King of Clubs played by Gabriel
 Herb takes the trick
 
@@ -260,19 +242,16 @@ player Edsger's hand: [0] Nine of Hearts
 player Edsger's hand: [1] Nine of Diamonds
 player Edsger's hand: [2] Ten of Spades
 player Edsger's hand: [3] Ten of Diamonds
-workedsadasd2
 Ten of Spades played by Edsger
 player Fran's hand: [0] Ten of Hearts
 player Fran's hand: [1] Jack of Spades
 player Fran's hand: [2] Jack of Diamonds
 player Fran's hand: [3] Queen of Spades
-workedsadasd2
 Queen of Spades played by Fran
 player Gabriel's hand: [0] Queen of Hearts
 player Gabriel's hand: [1] Queen of Diamonds
 player Gabriel's hand: [2] King of Spades
 player Gabriel's hand: [3] King of Diamonds
-workedsadasd2
 King of Spades played by Gabriel
 Herb takes the trick
 
@@ -349,14 +328,12 @@ player Gabriel's hand: [1] Nine of Hearts
 player Gabriel's hand: [2] Queen of Diamonds
 player Gabriel's hand: [3] King of Hearts
 player Gabriel's hand: [4] Ace of Clubs
-workedsadasd2
 Ace of Clubs played by Gabriel
 player Herb's hand: [0] Ten of Clubs
 player Herb's hand: [1] Ten of Diamonds
 player Herb's hand: [2] Jack of Spades
 player Herb's hand: [3] Queen of Hearts
 player Herb's hand: [4] Ace of Diamonds
-workedsadasd2
 Ten of Clubs played by Herb
 Gabriel takes the trick
 
@@ -369,7 +346,6 @@ player Herb's hand: [0] Ten of Diamonds
 player Herb's hand: [1] Jack of Spades
 player Herb's hand: [2] Queen of Hearts
 player Herb's hand: [3] Ace of Diamonds
-workedsadasd2
 Queen of Hearts played by Herb
 player Edsger's hand: [0] Nine of Clubs
 player Edsger's hand: [1] Ten of Spades
@@ -380,7 +356,6 @@ player Fran's hand: [0] Jack of Hearts
 player Fran's hand: [1] King of Diamonds
 player Fran's hand: [2] King of Spades
 player Fran's hand: [3] Jack of Clubs
-workedsadasd2
 Jack of Hearts played by Fran
 Gabriel takes the trick
 
@@ -391,17 +366,14 @@ Queen of Diamonds led by Gabriel
 player Herb's hand: [0] Ten of Diamonds
 player Herb's hand: [1] Jack of Spades
 player Herb's hand: [2] Ace of Diamonds
-workedsadasd2
 Ace of Diamonds played by Herb
 player Edsger's hand: [0] Jack of Diamonds
 player Edsger's hand: [1] Ten of Spades
 player Edsger's hand: [2] Ace of Spades
-workedsadasd2
 Jack of Diamonds played by Edsger
 player Fran's hand: [0] King of Diamonds
 player Fran's hand: [1] King of Spades
 player Fran's hand: [2] Jack of Clubs
-workedsadasd2
 King of Diamonds played by Fran
 Herb takes the trick
 
@@ -422,13 +394,10 @@ Fran takes the trick
 player Fran's hand: [0] Jack of Clubs
 Jack of Clubs led by Fran
 player Gabriel's hand: [0] Nine of Spades
-workedsadasd
 Nine of Spades played by Gabriel
 player Herb's hand: [0] Jack of Spades
-workedsadasd
 Jack of Spades played by Herb
 player Edsger's hand: [0] Ace of Spades
-workedsadasd
 Ace of Spades played by Edsger
 Herb takes the trick
 
@@ -447,56 +416,47 @@ player Fran's hand: [1] Ten of Spades
 player Fran's hand: [2] Ten of Clubs
 player Fran's hand: [3] Jack of Hearts
 player Fran's hand: [4] Jack of Diamonds
-Jack of Hearts led by Fran
+Ten of Clubs led by Fran
 player Gabriel's hand: [0] Jack of Spades
 player Gabriel's hand: [1] Queen of Hearts
 player Gabriel's hand: [2] Queen of Clubs
 player Gabriel's hand: [3] King of Spades
 player Gabriel's hand: [4] King of Diamonds
-workedsadasd
-workedsadasd2
-Queen of Hearts played by Gabriel
+Queen of Clubs played by Gabriel
 player Herb's hand: [0] Nine of Diamonds
 player Herb's hand: [1] King of Clubs
 player Herb's hand: [2] Ace of Spades
 player Herb's hand: [3] Ace of Hearts
 player Herb's hand: [4] Ace of Diamonds
-workedsadasd
-workedsadasd2
-Ace of Hearts played by Herb
+King of Clubs played by Herb
 player Edsger's hand: [0] Nine of Clubs
 player Edsger's hand: [1] Ten of Hearts
 player Edsger's hand: [2] Ten of Diamonds
 player Edsger's hand: [3] Jack of Clubs
 player Edsger's hand: [4] Queen of Diamonds
-workedsadasd
-workedsadasd2
-Ten of Hearts played by Edsger
-Fran takes the trick
+Jack of Clubs played by Edsger
+Herb takes the trick
 
+player Herb's hand: [0] Nine of Diamonds
+player Herb's hand: [1] Ace of Spades
+player Herb's hand: [2] Ace of Hearts
+player Herb's hand: [3] Ace of Diamonds
+Ace of Hearts led by Herb
+player Edsger's hand: [0] Nine of Clubs
+player Edsger's hand: [1] Ten of Hearts
+player Edsger's hand: [2] Ten of Diamonds
+player Edsger's hand: [3] Queen of Diamonds
+Ten of Hearts played by Edsger
 player Fran's hand: [0] Nine of Hearts
 player Fran's hand: [1] Ten of Spades
-player Fran's hand: [2] Ten of Clubs
+player Fran's hand: [2] Jack of Hearts
 player Fran's hand: [3] Jack of Diamonds
-Ten of Clubs led by Fran
+Nine of Hearts played by Fran
 player Gabriel's hand: [0] Jack of Spades
-player Gabriel's hand: [1] Queen of Clubs
+player Gabriel's hand: [1] Queen of Hearts
 player Gabriel's hand: [2] King of Spades
 player Gabriel's hand: [3] King of Diamonds
-workedsadasd2
-Queen of Clubs played by Gabriel
-player Herb's hand: [0] Nine of Diamonds
-player Herb's hand: [1] King of Clubs
-player Herb's hand: [2] Ace of Spades
-player Herb's hand: [3] Ace of Diamonds
-workedsadasd2
-King of Clubs played by Herb
-player Edsger's hand: [0] Nine of Clubs
-player Edsger's hand: [1] Ten of Diamonds
-player Edsger's hand: [2] Jack of Clubs
-player Edsger's hand: [3] Queen of Diamonds
-workedsadasd2
-Jack of Clubs played by Edsger
+Queen of Hearts played by Gabriel
 Herb takes the trick
 
 player Herb's hand: [0] Nine of Diamonds
@@ -507,15 +467,13 @@ player Edsger's hand: [0] Nine of Clubs
 player Edsger's hand: [1] Ten of Diamonds
 player Edsger's hand: [2] Queen of Diamonds
 Nine of Clubs played by Edsger
-player Fran's hand: [0] Nine of Hearts
-player Fran's hand: [1] Ten of Spades
+player Fran's hand: [0] Ten of Spades
+player Fran's hand: [1] Jack of Hearts
 player Fran's hand: [2] Jack of Diamonds
-workedsadasd2
 Ten of Spades played by Fran
 player Gabriel's hand: [0] Jack of Spades
 player Gabriel's hand: [1] King of Spades
 player Gabriel's hand: [2] King of Diamonds
-workedsadasd2
 King of Spades played by Gabriel
 Herb takes the trick
 
@@ -524,31 +482,29 @@ player Herb's hand: [1] Ace of Diamonds
 Ace of Diamonds led by Herb
 player Edsger's hand: [0] Ten of Diamonds
 player Edsger's hand: [1] Queen of Diamonds
-workedsadasd2
 Queen of Diamonds played by Edsger
-player Fran's hand: [0] Nine of Hearts
+player Fran's hand: [0] Jack of Hearts
 player Fran's hand: [1] Jack of Diamonds
-workedsadasd2
 Jack of Diamonds played by Fran
 player Gabriel's hand: [0] Jack of Spades
 player Gabriel's hand: [1] King of Diamonds
-workedsadasd2
 King of Diamonds played by Gabriel
 Fran takes the trick
 
-player Fran's hand: [0] Nine of Hearts
-Nine of Hearts led by Fran
+player Fran's hand: [0] Jack of Hearts
+Jack of Hearts led by Fran
 player Gabriel's hand: [0] Jack of Spades
 Jack of Spades played by Gabriel
 player Herb's hand: [0] Nine of Diamonds
 Nine of Diamonds played by Herb
 player Edsger's hand: [0] Ten of Diamonds
 Ten of Diamonds played by Edsger
-Edsger takes the trick
+Fran takes the trick
 
 Fran and Herb win the hand
+march!
 Edsger and Gabriel have 3 points
-Fran and Herb have 5 points
+Fran and Herb have 6 points
 
 Hand 5
 Fran deals
@@ -570,21 +526,18 @@ player Herb's hand: [1] Ten of Diamonds
 player Herb's hand: [2] Queen of Hearts
 player Herb's hand: [3] Queen of Clubs
 player Herb's hand: [4] Queen of Diamonds
-workedsadasd2
 Nine of Spades played by Herb
 player Edsger's hand: [0] Ten of Spades
 player Edsger's hand: [1] Ten of Hearts
 player Edsger's hand: [2] Ten of Clubs
 player Edsger's hand: [3] Queen of Spades
 player Edsger's hand: [4] King of Diamonds
-workedsadasd2
 Queen of Spades played by Edsger
 player Fran's hand: [0] Jack of Clubs
 player Fran's hand: [1] Jack of Diamonds
 player Fran's hand: [2] King of Spades
 player Fran's hand: [3] King of Hearts
 player Fran's hand: [4] King of Clubs
-workedsadasd2
 King of Spades played by Fran
 Fran takes the trick
 
@@ -597,74 +550,65 @@ player Gabriel's hand: [0] Nine of Hearts
 player Gabriel's hand: [1] Nine of Clubs
 player Gabriel's hand: [2] Nine of Diamonds
 player Gabriel's hand: [3] Jack of Hearts
-workedsadasd2
 Nine of Clubs played by Gabriel
 player Herb's hand: [0] Ten of Diamonds
 player Herb's hand: [1] Queen of Hearts
 player Herb's hand: [2] Queen of Clubs
 player Herb's hand: [3] Queen of Diamonds
-workedsadasd2
 Queen of Clubs played by Herb
 player Edsger's hand: [0] Ten of Spades
 player Edsger's hand: [1] Ten of Hearts
 player Edsger's hand: [2] Ten of Clubs
 player Edsger's hand: [3] King of Diamonds
-workedsadasd2
 Ten of Clubs played by Edsger
 Fran takes the trick
 
 player Fran's hand: [0] Jack of Clubs
 player Fran's hand: [1] Jack of Diamonds
 player Fran's hand: [2] King of Hearts
-Jack of Diamonds led by Fran
+Jack of Clubs led by Fran
 player Gabriel's hand: [0] Nine of Hearts
 player Gabriel's hand: [1] Nine of Diamonds
 player Gabriel's hand: [2] Jack of Hearts
-workedsadasd
-workedsadasd2
 Nine of Diamonds played by Gabriel
 player Herb's hand: [0] Ten of Diamonds
 player Herb's hand: [1] Queen of Hearts
 player Herb's hand: [2] Queen of Diamonds
-workedsadasd
-workedsadasd2
-Queen of Diamonds played by Herb
-player Edsger's hand: [0] Ten of Spades
-player Edsger's hand: [1] Ten of Hearts
-player Edsger's hand: [2] King of Diamonds
-workedsadasd
-workedsadasd2
-King of Diamonds played by Edsger
-Fran takes the trick
-
-player Fran's hand: [0] Jack of Clubs
-player Fran's hand: [1] King of Hearts
-Jack of Clubs led by Fran
-player Gabriel's hand: [0] Nine of Hearts
-player Gabriel's hand: [1] Jack of Hearts
-Nine of Hearts played by Gabriel
-player Herb's hand: [0] Ten of Diamonds
-player Herb's hand: [1] Queen of Hearts
 Ten of Diamonds played by Herb
 player Edsger's hand: [0] Ten of Spades
 player Edsger's hand: [1] Ten of Hearts
+player Edsger's hand: [2] King of Diamonds
 Ten of Spades played by Edsger
+Fran takes the trick
+
+player Fran's hand: [0] Jack of Diamonds
+player Fran's hand: [1] King of Hearts
+Jack of Diamonds led by Fran
+player Gabriel's hand: [0] Nine of Hearts
+player Gabriel's hand: [1] Jack of Hearts
+Jack of Hearts played by Gabriel
+player Herb's hand: [0] Queen of Diamonds
+player Herb's hand: [1] Queen of Hearts
+Queen of Hearts played by Herb
+player Edsger's hand: [0] King of Diamonds
+player Edsger's hand: [1] Ten of Hearts
+Ten of Hearts played by Edsger
 Gabriel takes the trick
 
-player Gabriel's hand: [0] Jack of Hearts
-Jack of Hearts led by Gabriel
-player Herb's hand: [0] Queen of Hearts
-Queen of Hearts played by Herb
-player Edsger's hand: [0] Ten of Hearts
-Ten of Hearts played by Edsger
+player Gabriel's hand: [0] Nine of Hearts
+Nine of Hearts led by Gabriel
+player Herb's hand: [0] Queen of Diamonds
+Queen of Diamonds played by Herb
+player Edsger's hand: [0] King of Diamonds
+King of Diamonds played by Edsger
 player Fran's hand: [0] King of Hearts
 King of Hearts played by Fran
-Gabriel takes the trick
+Fran takes the trick
 
 Fran and Herb win the hand
 euchred!
 Edsger and Gabriel have 3 points
-Fran and Herb have 7 points
+Fran and Herb have 8 points
 
 Hand 6
 Gabriel deals
@@ -684,7 +628,6 @@ player Edsger's hand: [1] Jack of Clubs
 player Edsger's hand: [2] Queen of Diamonds
 player Edsger's hand: [3] King of Clubs
 player Edsger's hand: [4] Ace of Diamonds
-workedsadasd2
 Ace of Diamonds played by Edsger
 player Fran's hand: [0] Nine of Clubs
 player Fran's hand: [1] Jack of Hearts
@@ -709,7 +652,6 @@ player Fran's hand: [0] Queen of Clubs
 player Fran's hand: [1] Ace of Clubs
 player Fran's hand: [2] King of Hearts
 player Fran's hand: [3] Jack of Hearts
-workedsadasd2
 Ace of Clubs played by Fran
 player Gabriel's hand: [0] King of Spades
 player Gabriel's hand: [1] Ten of Hearts
@@ -738,7 +680,6 @@ Nine of Diamonds played by Herb
 player Edsger's hand: [0] Ten of Diamonds
 player Edsger's hand: [1] Jack of Clubs
 player Edsger's hand: [2] Queen of Diamonds
-workedsadasd2
 Jack of Clubs played by Edsger
 Gabriel takes the trick
 
@@ -747,33 +688,28 @@ player Gabriel's hand: [1] Ace of Hearts
 Ace of Hearts led by Gabriel
 player Herb's hand: [0] Jack of Spades
 player Herb's hand: [1] Jack of Diamonds
-workedsadasd2
 Jack of Hearts played by Herb
 player Edsger's hand: [0] Ten of Diamonds
 player Edsger's hand: [1] Queen of Diamonds
 Ten of Diamonds played by Edsger
 player Fran's hand: [0] King of Hearts
 player Fran's hand: [1] Jack of Hearts
-workedsadasd2
 Jack of Hearts played by Fran
 Herb takes the trick
 
 player Herb's hand: [0] Jack of Spades
-Jack of Diamonds led by Herb
+Jack of Spades led by Herb
 player Edsger's hand: [0] Queen of Diamonds
-workedsadasd
 Queen of Diamonds played by Edsger
 player Fran's hand: [0] King of Hearts
-workedsadasd
 King of Hearts played by Fran
 player Gabriel's hand: [0] Queen of Hearts
-workedsadasd
 Queen of Hearts played by Gabriel
-Herb takes the trick
+Fran takes the trick
 
 Fran and Herb win the hand
 Edsger and Gabriel have 3 points
-Fran and Herb have 8 points
+Fran and Herb have 9 points
 
 Hand 7
 Herb deals
@@ -793,21 +729,18 @@ player Fran's hand: [1] Ten of Clubs
 player Fran's hand: [2] Jack of Clubs
 player Fran's hand: [3] King of Spades
 player Fran's hand: [4] Ace of Diamonds
-workedsadasd2
 Ace of Diamonds played by Fran
 player Gabriel's hand: [0] Jack of Spades
 player Gabriel's hand: [1] Jack of Diamonds
 player Gabriel's hand: [2] Queen of Diamonds
 player Gabriel's hand: [3] Ace of Spades
 player Gabriel's hand: [4] Ace of Hearts
-workedsadasd2
 Queen of Diamonds played by Gabriel
 player Herb's hand: [0] Nine of Diamonds
 player Herb's hand: [1] Ten of Diamonds
 player Herb's hand: [2] Queen of Spades
 player Herb's hand: [3] Queen of Hearts
 player Herb's hand: [4] King of Hearts
-workedsadasd2
 Ten of Diamonds played by Herb
 Fran takes the trick
 
@@ -820,71 +753,64 @@ player Gabriel's hand: [0] Jack of Spades
 player Gabriel's hand: [1] Jack of Diamonds
 player Gabriel's hand: [2] Ace of Spades
 player Gabriel's hand: [3] Ace of Hearts
-workedsadasd2
 Ace of Spades played by Gabriel
 player Herb's hand: [0] Nine of Diamonds
 player Herb's hand: [1] Queen of Spades
 player Herb's hand: [2] Queen of Hearts
 player Herb's hand: [3] King of Hearts
-workedsadasd2
 Queen of Spades played by Herb
 player Edsger's hand: [0] Nine of Spades
 player Edsger's hand: [1] Nine of Hearts
 player Edsger's hand: [2] Queen of Clubs
 player Edsger's hand: [3] King of Clubs
-workedsadasd2
 Nine of Spades played by Edsger
 Gabriel takes the trick
 
 player Gabriel's hand: [0] Jack of Spades
 player Gabriel's hand: [1] Jack of Diamonds
 player Gabriel's hand: [2] Ace of Hearts
-Jack of Diamonds led by Gabriel
+Jack of Spades led by Gabriel
 player Herb's hand: [0] Nine of Diamonds
 player Herb's hand: [1] Queen of Hearts
 player Herb's hand: [2] King of Hearts
-workedsadasd
-workedsadasd2
 Nine of Diamonds played by Herb
 player Edsger's hand: [0] Nine of Hearts
 player Edsger's hand: [1] Queen of Clubs
 player Edsger's hand: [2] King of Clubs
-workedsadasd
 Queen of Clubs played by Edsger
 player Fran's hand: [0] Ten of Hearts
 player Fran's hand: [1] Ten of Clubs
 player Fran's hand: [2] Jack of Clubs
-workedsadasd
 Ten of Clubs played by Fran
 Gabriel takes the trick
 
-player Gabriel's hand: [0] Jack of Spades
+player Gabriel's hand: [0] Jack of Diamonds
 player Gabriel's hand: [1] Ace of Hearts
-Jack of Spades led by Gabriel
+Jack of Diamonds led by Gabriel
 player Herb's hand: [0] Queen of Hearts
 player Herb's hand: [1] King of Hearts
-Queen of Hearts played by Herb
+King of Hearts played by Herb
 player Edsger's hand: [0] King of Clubs
 player Edsger's hand: [1] Nine of Hearts
-King of Clubs played by Edsger
+Nine of Hearts played by Edsger
 player Fran's hand: [0] Jack of Clubs
 player Fran's hand: [1] Ten of Hearts
-Jack of Clubs played by Fran
-Herb takes the trick
-
-player Herb's hand: [0] King of Hearts
-King of Hearts led by Herb
-player Edsger's hand: [0] Nine of Hearts
-Nine of Hearts played by Edsger
-player Fran's hand: [0] Ten of Hearts
 Ten of Hearts played by Fran
+Gabriel takes the trick
+
 player Gabriel's hand: [0] Ace of Hearts
-Ace of Hearts played by Gabriel
+Ace of Hearts led by Gabriel
+player Herb's hand: [0] Queen of Hearts
+Queen of Hearts played by Herb
+player Edsger's hand: [0] King of Clubs
+King of Clubs played by Edsger
+player Fran's hand: [0] Jack of Clubs
+Jack of Clubs played by Fran
 Gabriel takes the trick
 
 Edsger and Gabriel win the hand
 Edsger and Gabriel have 4 points
-Fran and Herb have 8 points
+Fran and Herb have 9 points
 
 Hand 8
 Edsger deals
@@ -903,7 +829,6 @@ player Gabriel's hand: [1] Ten of Hearts
 player Gabriel's hand: [2] Queen of Hearts
 player Gabriel's hand: [3] King of Spades
 player Gabriel's hand: [4] King of Hearts
-workedsadasd2
 Nine of Clubs played by Gabriel
 player Herb's hand: [0] Nine of Spades
 player Herb's hand: [1] Nine of Hearts
@@ -916,7 +841,6 @@ player Edsger's hand: [1] Jack of Diamonds
 player Edsger's hand: [2] King of Diamonds
 player Edsger's hand: [3] Ace of Clubs
 player Edsger's hand: [4] Ace of Hearts
-workedsadasd2
 Ace of Clubs played by Edsger
 Edsger takes the trick
 
@@ -929,7 +853,6 @@ player Fran's hand: [0] Nine of Diamonds
 player Fran's hand: [1] Ten of Clubs
 player Fran's hand: [2] Queen of Clubs
 player Fran's hand: [3] Queen of Diamonds
-workedsadasd2
 Queen of Diamonds played by Fran
 player Gabriel's hand: [0] Ten of Hearts
 player Gabriel's hand: [1] Queen of Hearts
@@ -940,7 +863,6 @@ player Herb's hand: [0] Ten of Spades
 player Herb's hand: [1] Queen of Spades
 player Herb's hand: [2] Ace of Diamonds
 player Herb's hand: [3] Nine of Hearts
-workedsadasd2
 Ace of Diamonds played by Herb
 Herb takes the trick
 
@@ -967,11 +889,9 @@ player Gabriel's hand: [1] King of Hearts
 King of Hearts led by Gabriel
 player Herb's hand: [0] Ten of Spades
 player Herb's hand: [1] Nine of Hearts
-workedsadasd2
 Nine of Hearts played by Herb
 player Edsger's hand: [0] Ace of Hearts
 player Edsger's hand: [1] Jack of Diamonds
-workedsadasd2
 Jack of Hearts played by Edsger
 player Fran's hand: [0] Ten of Clubs
 player Fran's hand: [1] Queen of Clubs
@@ -979,21 +899,18 @@ Ten of Clubs played by Fran
 Edsger takes the trick
 
 player Edsger's hand: [0] Ace of Hearts
-Jack of Diamonds led by Edsger
+Ace of Hearts led by Edsger
 player Fran's hand: [0] Queen of Clubs
-workedsadasd
 Queen of Clubs played by Fran
 player Gabriel's hand: [0] Queen of Hearts
-workedsadasd
 Queen of Hearts played by Gabriel
 player Herb's hand: [0] Ten of Spades
-workedsadasd
 Ten of Spades played by Herb
 Edsger takes the trick
 
 Edsger and Gabriel win the hand
 Edsger and Gabriel have 5 points
-Fran and Herb have 8 points
+Fran and Herb have 9 points
 
 Hand 9
 Fran deals
@@ -1014,14 +931,12 @@ player Herb's hand: [1] Jack of Diamonds
 player Herb's hand: [2] Queen of Hearts
 player Herb's hand: [3] King of Hearts
 player Herb's hand: [4] Ace of Hearts
-workedsadasd2
 Jack of Diamonds played by Herb
 player Edsger's hand: [0] Nine of Diamonds
 player Edsger's hand: [1] Ten of Hearts
 player Edsger's hand: [2] Jack of Hearts
 player Edsger's hand: [3] King of Clubs
 player Edsger's hand: [4] Ace of Clubs
-workedsadasd2
 Nine of Diamonds played by Edsger
 player Fran's hand: [0] Jack of Clubs
 player Fran's hand: [1] Queen of Clubs
@@ -1040,7 +955,6 @@ player Herb's hand: [0] Ten of Diamonds
 player Herb's hand: [1] Queen of Hearts
 player Herb's hand: [2] King of Hearts
 player Herb's hand: [3] Ace of Hearts
-workedsadasd2
 Ten of Diamonds played by Herb
 player Edsger's hand: [0] Ten of Hearts
 player Edsger's hand: [1] Jack of Hearts
@@ -1057,160 +971,46 @@ Fran takes the trick
 player Fran's hand: [0] King of Spades
 player Fran's hand: [1] Ace of Spades
 player Fran's hand: [2] Jack of Clubs
-Jack of Clubs led by Fran
+King of Spades led by Fran
 player Gabriel's hand: [0] Nine of Clubs
 player Gabriel's hand: [1] Ten of Clubs
 player Gabriel's hand: [2] Queen of Diamonds
-workedsadasd
-workedsadasd2
-Ten of Clubs played by Gabriel
+Nine of Clubs played by Gabriel
 player Herb's hand: [0] Queen of Hearts
 player Herb's hand: [1] King of Hearts
 player Herb's hand: [2] Ace of Hearts
-workedsadasd
 Queen of Hearts played by Herb
 player Edsger's hand: [0] Jack of Hearts
 player Edsger's hand: [1] King of Clubs
 player Edsger's hand: [2] Ace of Clubs
-workedsadasd
-workedsadasd2
-Ace of Clubs played by Edsger
-Fran takes the trick
-
-player Fran's hand: [0] King of Spades
-player Fran's hand: [1] Ace of Spades
-Ace of Spades led by Fran
-player Gabriel's hand: [0] Nine of Clubs
-player Gabriel's hand: [1] Queen of Diamonds
-Nine of Clubs played by Gabriel
-player Herb's hand: [0] King of Hearts
-player Herb's hand: [1] Ace of Hearts
-King of Hearts played by Herb
-player Edsger's hand: [0] Jack of Hearts
-player Edsger's hand: [1] King of Clubs
 Jack of Hearts played by Edsger
 Fran takes the trick
 
-player Fran's hand: [0] King of Spades
-King of Spades led by Fran
+player Fran's hand: [0] Ace of Spades
+player Fran's hand: [1] Jack of Clubs
+Ace of Spades led by Fran
+player Gabriel's hand: [0] Ten of Clubs
+player Gabriel's hand: [1] Queen of Diamonds
+Ten of Clubs played by Gabriel
+player Herb's hand: [0] King of Hearts
+player Herb's hand: [1] Ace of Hearts
+King of Hearts played by Herb
+player Edsger's hand: [0] King of Clubs
+player Edsger's hand: [1] Ace of Clubs
+King of Clubs played by Edsger
+Fran takes the trick
+
+player Fran's hand: [0] Jack of Clubs
+Jack of Clubs led by Fran
 player Gabriel's hand: [0] Queen of Diamonds
 Queen of Diamonds played by Gabriel
 player Herb's hand: [0] Ace of Hearts
 Ace of Hearts played by Herb
-player Edsger's hand: [0] King of Clubs
-King of Clubs played by Edsger
+player Edsger's hand: [0] Ace of Clubs
+Ace of Clubs played by Edsger
 Fran takes the trick
 
 Fran and Herb win the hand
 Edsger and Gabriel have 5 points
-Fran and Herb have 9 points
-
-Hand 10
-Gabriel deals
-Ace of Clubs turned up
-Herb passes
-Edsger passes
-Fran passes
-Gabriel passes
-Herb passes
-Edsger orders up Spades
-
-player Herb's hand: [0] Nine of Clubs
-player Herb's hand: [1] Ten of Hearts
-player Herb's hand: [2] Jack of Diamonds
-player Herb's hand: [3] Queen of Clubs
-player Herb's hand: [4] Ace of Diamonds
-Ace of Diamonds led by Herb
-player Edsger's hand: [0] Nine of Hearts
-player Edsger's hand: [1] Ten of Diamonds
-player Edsger's hand: [2] Jack of Clubs
-player Edsger's hand: [3] Queen of Spades
-player Edsger's hand: [4] Ace of Hearts
-workedsadasd2
-Ten of Diamonds played by Edsger
-player Fran's hand: [0] Ten of Clubs
-player Fran's hand: [1] Jack of Spades
-player Fran's hand: [2] King of Hearts
-player Fran's hand: [3] King of Diamonds
-player Fran's hand: [4] Ace of Spades
-workedsadasd2
-King of Diamonds played by Fran
-player Gabriel's hand: [0] Nine of Diamonds
-player Gabriel's hand: [1] Ten of Spades
-player Gabriel's hand: [2] Queen of Hearts
-player Gabriel's hand: [3] Queen of Diamonds
-player Gabriel's hand: [4] King of Spades
-workedsadasd2
-Queen of Diamonds played by Gabriel
-Herb takes the trick
-
-player Herb's hand: [0] Nine of Clubs
-player Herb's hand: [1] Ten of Hearts
-player Herb's hand: [2] Jack of Diamonds
-player Herb's hand: [3] Queen of Clubs
-Queen of Clubs led by Herb
-player Edsger's hand: [0] Nine of Hearts
-player Edsger's hand: [1] Jack of Clubs
-player Edsger's hand: [2] Queen of Spades
-player Edsger's hand: [3] Ace of Hearts
-Nine of Hearts played by Edsger
-player Fran's hand: [0] Ten of Clubs
-player Fran's hand: [1] Jack of Spades
-player Fran's hand: [2] King of Hearts
-player Fran's hand: [3] Ace of Spades
-workedsadasd2
-Ten of Clubs played by Fran
-player Gabriel's hand: [0] Nine of Diamonds
-player Gabriel's hand: [1] Ten of Spades
-player Gabriel's hand: [2] Queen of Hearts
-player Gabriel's hand: [3] King of Spades
-Nine of Diamonds played by Gabriel
-Herb takes the trick
-
-player Herb's hand: [0] Nine of Clubs
-player Herb's hand: [1] Ten of Hearts
-player Herb's hand: [2] Jack of Diamonds
-Jack of Diamonds led by Herb
-player Edsger's hand: [0] Ace of Hearts
-player Edsger's hand: [1] Queen of Spades
-player Edsger's hand: [2] Jack of Clubs
-Ace of Hearts played by Edsger
-player Fran's hand: [0] Jack of Spades
-player Fran's hand: [1] King of Hearts
-player Fran's hand: [2] Ace of Spades
-King of Hearts played by Fran
-player Gabriel's hand: [0] Queen of Hearts
-player Gabriel's hand: [1] Ten of Spades
-player Gabriel's hand: [2] King of Spades
-Queen of Hearts played by Gabriel
-Herb takes the trick
-
-player Herb's hand: [0] Nine of Clubs
-player Herb's hand: [1] Ten of Hearts
-Ten of Hearts led by Herb
-player Edsger's hand: [0] Queen of Spades
-player Edsger's hand: [1] Jack of Clubs
-Queen of Spades played by Edsger
-player Fran's hand: [0] Ace of Spades
-player Fran's hand: [1] Jack of Spades
-Ace of Spades played by Fran
-player Gabriel's hand: [0] Ten of Spades
-player Gabriel's hand: [1] King of Spades
-Ten of Spades played by Gabriel
-Fran takes the trick
-
-player Fran's hand: [0] Jack of Spades
-Jack of Spades led by Fran
-player Gabriel's hand: [0] King of Spades
-King of Spades played by Gabriel
-player Herb's hand: [0] Nine of Clubs
-Nine of Clubs played by Herb
-player Edsger's hand: [0] Jack of Clubs
-Jack of Clubs played by Edsger
-Fran takes the trick
-
-Fran and Herb win the hand
-euchred!
-Edsger and Gabriel have 5 points
-Fran and Herb have 11 points
+Fran and Herb have 10 points
 
