@@ -90,5 +90,5 @@ TEST(test_player_play) {
   ASSERT_EQUAL(played, Card(Card::RANK_JACK, Card::SUIT_HEARTS));
   played = alice->play_card(led, trump);
   ASSERT_EQUAL(played, Card(Card::RANK_JACK, Card::SUIT_DIAMONDS));
-  
+  delete alice;
 }
