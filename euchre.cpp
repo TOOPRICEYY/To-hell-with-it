@@ -47,12 +47,7 @@ int makeTrump(array<Player *, 4> &Players, Pack &pack, int dealer,
         for(int i = 0; i<4; i++){ // make trump
             int itter = (i+dealer+1)%4;
             string s;
-            /*
-            for(int i = 0; i < 5; ++i) {
-                cout << "player " << Players[itter]->get_name() << 
-                "'s hand: [" << i << "] " << Players[itter]->card(i) << endl;
-            }
-            */
+
             if(Players[itter]->make_trump(upcard,itter==dealer,h+1,s)){
                 trump = s;
                 order_up = itter;
