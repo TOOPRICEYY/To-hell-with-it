@@ -155,8 +155,6 @@ class Simple : public Player {
         return false;
     }
 
-
-    
     virtual void add_and_discard(const Card &upcard) {
         assert(handsize > 0);
         Card h[MAX_HAND_SIZE+1];
@@ -310,6 +308,12 @@ class Simple : public Player {
         if (left_bower != -1) {
             hand[left_bower] = a;
         }
+        /*if(contains(trump)) {
+            Card c = hand[index_high_trump(trump)];
+            remove(c);
+            cout << c << " played by " << get_name() << endl;
+            return c;
+        } */
         array<Card, 5> h;
         int hi = handsize;
         for(int i=0; i < handsize; ++i) {
