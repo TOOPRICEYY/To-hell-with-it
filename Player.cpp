@@ -144,7 +144,7 @@ class Simple : public Player {
     virtual void add_and_discard(const Card &upcard) {
         assert(handsize > 0);
         array<Card, MAX_HAND_SIZE> h;
-        for(int i=0; i < handsize; ++i) {
+        for(int i=0; i < handsize; ++i) { // sorts, but not based on trump
             h[i] = hand[i];
         }
         sort(h.begin(),h.end());
@@ -204,12 +204,12 @@ class Simple : public Player {
         Card led_card2 = led_card;
         if(led_card.is_left_bower(trump)){
             Card led_card2 = Card(led_card.get_rank(),trump);
-            cout << "workedsadasd"<<endl;
+            //cout << "workedsadasd"<<endl;
         }
 
         if(contains(led_card2.get_suit()) && handsize>1) {
             Card c = hand[index_high_trump(led_card2.get_suit())];
-            cout << "workedsadasd2"<<endl;
+            //cout << "workedsadasd2"<<endl;
             if (left_bower != -1) {
                 hand[left_bower] = a;
             }
