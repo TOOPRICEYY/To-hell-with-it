@@ -153,7 +153,7 @@ TEST(test_player_add_and_discard_small) {
   delete bob;
 }
 
-TEST(test_player_add_and_discard_small2) {
+TEST(test_player_add_and_discard_small2) { // deletes upcard
   Player * bob = Player_factory("Bob","Simple");
   bob->add_card(Card(Card::RANK_TEN, Card::SUIT_DIAMONDS));
   bob->add_card(Card(Card::RANK_NINE, Card::SUIT_DIAMONDS));
