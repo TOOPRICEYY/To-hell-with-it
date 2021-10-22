@@ -167,17 +167,27 @@ bool Card_less(const Card &a, const Card &b, const string &trump){
   assert(trump == Card::SUIT_CLUBS || trump == Card::SUIT_DIAMONDS
   || trump == Card::SUIT_HEARTS || trump == Card::SUIT_SPADES);
 // first check trump & bower status for quick check
-  if(a.is_trump(trump) && !b.is_trump(trump)) {return false;}
-  if(!a.is_trump(trump) && b.is_trump(trump)) {return true;}
-  if(a.is_right_bower(trump)) {return false;}
-  if(b.is_right_bower(trump)) {return true;}
-  if(a.is_left_bower(trump)) {return false;}
-  if(b.is_left_bower(trump)) {return true;}
+  if(a.is_trump(trump) && !b.is_trump(trump)) {
+    return false;
+    }
+  if(!a.is_trump(trump) && b.is_trump(trump)) {
+    return true;
+    }
+  if(a.is_right_bower(trump)) {
+    return false;
+    }
+  if(b.is_right_bower(trump)) {
+    return true;
+    }
+  if(a.is_left_bower(trump)) {
+    return false;
+    }
+  if(b.is_left_bower(trump)) {
+    return true;
+    }
 // if both are trump or non-trump, then find out manually
   return a < b;
 }
-
-// helper
 
 bool Card_less(const Card &a, const Card &b, const Card &led_card,
   const string &trump){
