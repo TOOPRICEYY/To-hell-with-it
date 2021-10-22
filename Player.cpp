@@ -270,8 +270,6 @@ class Simple : public Player {
         return left_bower;
     }
 
-  
-
     virtual Card play_card(const Card &led_card, const string &trump) {
         assert(handsize > 0);
         assert(trump == Card::SUIT_CLUBS || trump == Card::SUIT_DIAMONDS
