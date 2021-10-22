@@ -88,6 +88,16 @@ class Simple : public Player {
             ++handsize;
         }
     }
+    virtual void add_card(const Card &c,const string trump, Card hand[], int handsize) { // helper: w/ trump
+        assert(handsize < MAX_HAND_SIZE+1);
+            int index = handsize;
+            while (index > 0 && Card_less(c,hand[index-1],trump)) {
+                hand[index] = hand[index-1];
+                --index;
+            }
+            hand[index] = c;
+            ++handsize;
+    }
 
     virtual void add_card(const Card &c) {
         assert(handsize < MAX_HAND_SIZE);
@@ -143,14 +153,28 @@ class Simple : public Player {
 
     virtual void add_and_discard(const Card &upcard) {
         assert(handsize > 0);
-        array<Card, MAX_HAND_SIZE> h;
+        Card h[MAX_HAND_SIZE+1];
+        Card ht[MAX_HAND_SIZE+1];
+
         for(int i=0; i < handsize; ++i) {
             h[i] = hand[i];
+           // cout << "i: "<<i<<"Card: "<<h[i] << endl;
         }
-        sort(h.begin(),h.end());
-
-        remove(h[0]); // 0 should be the lowest
-        add_card(upcard, upcard.get_suit());
+        h[handsize] = upcard;
+        
+        int hi = handsize+1;
+        int temp = 1;
+        empty_hand();
+        for(int i=0; i < hi; ++i) {
+            add_card(h[i],upcard.get_suit(),ht,temp);
+        }
+        for(int i=0; i < hi; ++i) {
+            cout << "i: "<<i<<"Card: "<<h[i] << endl;
+        }
+        for(int i=1; i < hi; ++i) {
+            hand[i-1]=ht[i];
+        }
+        remove(hand[0]);
     }
 
     virtual Card lead_card(const std::string &trump) {
@@ -176,7 +200,7 @@ class Simple : public Player {
             a = hand[left_bower];
             hand[left_bower] = Card(a.get_rank(),trump);
         }
-        
+
         if(trump_count == handsize) {
             int index = index_high_trump(trump);
             if (left_bower != -1) {
