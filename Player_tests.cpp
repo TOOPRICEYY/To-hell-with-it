@@ -137,6 +137,32 @@ TEST(test_player_add_and_discard_basic) {
   
   Card upcard = Card(Card::RANK_FOUR,Card::SUIT_CLUBS);
   bob->add_and_discard(upcard);
-  ASSERT_EQUAL(bob.hand[1],upcard);
+  Card a = bob->play_card(upcard, "Clubs");
+  ASSERT_EQUAL(a,Card(Card::RANK_ACE, Card::SUIT_CLUBS));
+  delete bob;
+}
+
+TEST(test_player_add_and_discard_small) {
+  Player * bob = Player_factory("Bob","Simple");
+  bob->add_card(Card(Card::RANK_NINE, Card::SUIT_DIAMONDS));
+  
+  Card upcard = Card(Card::RANK_FOUR,Card::SUIT_CLUBS);
+  bob->add_and_discard(upcard);
+  Card a = bob->play_card(upcard, "Clubs");
+  ASSERT_EQUAL(a,upcard);
+  delete bob;
+}
+
+TEST(test_player_add_and_discard_small2) {
+  Player * bob = Player_factory("Bob","Simple");
+  bob->add_card(Card(Card::RANK_TEN, Card::SUIT_DIAMONDS));
+  bob->add_card(Card(Card::RANK_NINE, Card::SUIT_DIAMONDS));
+  
+  Card upcard = Card(Card::RANK_FOUR,Card::SUIT_DIAMONDS);
+  bob->add_and_discard(upcard);
+  Card a = bob->play_card(upcard, "Clubs");
+  ASSERT_EQUAL(a,Card(Card::RANK_TEN, Card::SUIT_DIAMONDS));
+  a = bob->play_card(upcard, "Clubs");
+  ASSERT_EQUAL(a,Card(Card::RANK_NINE, Card::SUIT_DIAMONDS));
   delete bob;
 }
