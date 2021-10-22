@@ -89,7 +89,8 @@ class Simple : public Player {
 
         }
     }
-    virtual void add_card(const Card &c,const string &trump, Card * hand, int &handsize) { // helper: w/ trump
+    virtual void add_card(const Card &c,const string &trump, 
+        Card * hand, int &handsize) { // helper: w/ trump
         assert(handsize < MAX_HAND_SIZE+1);
             int index = handsize;
 
@@ -291,20 +292,7 @@ class Simple : public Player {
             cout << c << " played by " << get_name() << endl;
             return c;
         }
-<<<<<<< HEAD
         if (left_bower != -1) {hand[left_bower] = a;}
-=======
-
-        if (left_bower != -1) {
-            hand[left_bower] = a;
-        }
-        /*if(contains(trump)) {
-            Card c = hand[index_high_trump(trump)];
-            remove(c);
-            cout << c << " played by " << get_name() << endl;
-            return c;
-        } */
->>>>>>> 382cbfe526fe9d515c66e8a721db080d86f0613f
         array<Card, 5> h;
         int hi = handsize;
         for(int i=0; i < handsize; ++i) {h[i] = hand[i];}
