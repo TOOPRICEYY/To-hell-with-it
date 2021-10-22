@@ -61,7 +61,6 @@ int makeTrump(array<Player *, 4> &Players, Pack &pack, int dealer, string &trump
         }
         h++;
     }
-    cout << endl;
     if(h==1){ //if trump declared in first round
         Players[dealer]->add_and_discard(upcard);
     }

@@ -486,9 +486,9 @@ class Human : public Player {
         }
         sort(h.begin(),h.end()); // sort first
 
-        for(int i = 0; i < handsize; ++i) {
+        for(int i = 5-handsize; i < 5; ++i) {
             cout << "Human player " << get_name() << 
-            "'s hand: [" << i << "] " << h[i] << endl;
+            "'s hand: [" << i-(5-handsize) << "] " << h[i] << endl;
         }
         cout << "Human player " << get_name() << 
         ", please select a card:" << endl;
@@ -496,7 +496,7 @@ class Human : public Player {
         int input;
         cin >> input;
 
-        return h[input];
+        return h[(5-handsize)+input];
     }
 
     virtual Card lead_card(const std::string &trump) {
@@ -504,6 +504,7 @@ class Human : public Player {
         Card c = gen_play_card(trump);
         cout << c << " led by " << get_name() << endl;
         remove(c);
+
 
         return c;
     }
@@ -527,6 +528,7 @@ class Human : public Player {
     int index(Card a) const{ // index given card
         for(int i=0; i < handsize; ++i) {
             if(hand[i] == a) {
+                
                 return i;
             }
         }
