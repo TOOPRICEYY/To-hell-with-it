@@ -47,18 +47,18 @@ TEST(test_player_making_second_round) {
   alice->add_card(Card(Card::RANK_JACK, Card::SUIT_SPADES));
   alice->add_card(Card(Card::RANK_JACK, Card::SUIT_HEARTS));
   Card upcard(Card::RANK_ACE,Card::SUIT_CLUBS);
+  Card upcard2(Card::RANK_EIGHT,Card::SUIT_SPADES);
+  Card upcard3(Card::RANK_TEN,Card::SUIT_HEARTS);
+  Card upcard4(Card::RANK_NINE,Card::SUIT_HEARTS);
   string order_up_suit = "";
   alice->make_trump(upcard,false,2,order_up_suit);
   ASSERT_EQUAL(order_up_suit, "Spades");
-  Card upcard2(Card::RANK_EIGHT,Card::SUIT_SPADES);
   order_up_suit = "";
   alice->make_trump(upcard2,false,2,order_up_suit);
   ASSERT_EQUAL(order_up_suit, "Clubs");
-  Card upcard3(Card::RANK_TEN,Card::SUIT_HEARTS);
   order_up_suit = "";
   alice->make_trump(upcard3,false,2,order_up_suit);
   ASSERT_EQUAL(order_up_suit, "");
-  Card upcard4(Card::RANK_NINE,Card::SUIT_HEARTS);
   order_up_suit = "";
   alice->make_trump(upcard4,false,2,order_up_suit);
   ASSERT_EQUAL(order_up_suit, "");
@@ -69,14 +69,26 @@ TEST(test_player_making_second_round) {
     delete alice;
 }
 
-TEST(test_player_) {
+TEST(test_player_play) {
     Player * alice = Player_factory("Alice","Simple");
 
   alice->add_card(Card(Card::RANK_QUEEN, Card::SUIT_CLUBS));
   alice->add_card(Card(Card::RANK_TEN, Card::SUIT_SPADES));
-  alice->add_card(Card(Card::RANK_KING, Card::SUIT_SPADES));
-  alice->add_card(Card(Card::RANK_JACK, Card::SUIT_SPADES));
+  alice->add_card(Card(Card::RANK_JACK, Card::SUIT_DIAMONDS));
+  alice->add_card(Card(Card::RANK_KING, Card::SUIT_CLUBS));
   alice->add_card(Card(Card::RANK_JACK, Card::SUIT_HEARTS));
-  Card upcard(Card::RANK_ACE,Card::SUIT_CLUBS);
-  string order_up_suit = "";
+  Card led(Card::RANK_ACE,Card::SUIT_CLUBS);
+  string trump = "Diamonds";
+
+  Card played = alice->play_card(led, trump);
+  ASSERT_EQUAL(played, Card(Card::RANK_KING, Card::SUIT_CLUBS));
+  played = alice->play_card(led, trump);
+  ASSERT_EQUAL(played, Card(Card::RANK_QUEEN, Card::SUIT_CLUBS));
+  played = alice->play_card(led, trump);
+  ASSERT_EQUAL(played, Card(Card::RANK_TEN, Card::SUIT_SPADES));
+  played = alice->play_card(led, trump);
+  ASSERT_EQUAL(played, Card(Card::RANK_JACK, Card::SUIT_HEARTS));
+  played = alice->play_card(led, trump);
+  ASSERT_EQUAL(played, Card(Card::RANK_JACK, Card::SUIT_DIAMONDS));
+  
 }
