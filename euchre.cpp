@@ -120,13 +120,15 @@ void run_trick(array<Player *, 4> &Players,
 
         
         trick[0] = Players[(leader)%4]->lead_card(trump);
-        cout << trick[0] << " led by " << Players[(leader)%4]->get_name() << endl;
+        cout << trick[0] << " led by " 
+        << Players[(leader)%4]->get_name() << endl;
 
 
         for(int p = 1; p < 4; ++p){
             
             trick[p] = Players[(leader+p)%4]->play_card(trick[0],trump);
-            cout << trick[p] << " played by " << Players[(leader+p)%4]->get_name() << endl;
+            cout << trick[p] << " played by " 
+            << Players[(leader+p)%4]->get_name() << endl;
             
             }
 
